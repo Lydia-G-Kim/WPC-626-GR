@@ -1,0 +1,6 @@
+@charset "utf-8";
+/* 서브 페이지 CSS - sub.css */
+
+/* 공통 외부 CSS 불러오기 */
+/* @import url(결로/파일명); */
+@import url(./commen.css);

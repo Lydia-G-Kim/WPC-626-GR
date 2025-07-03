@@ -65,10 +65,11 @@ ul {
   /* font-weight:bold를 보통 많이 씀 */
 
   /* 글자크기 fz */
-  font-size: 40px;
+  font-size: 80px;
 
   /* 글자색 c */
-  color: #03c75a;
+  /* color: #03c75a; 네이버 로고 컬러코드 */
+  color: #9ff8f1;
 
   /* 자간 ls */
   letter-spacing: 2px;
@@ -84,10 +85,16 @@ ul {
   /* 글자 그림자로 글자 테두리 주기
   글자 그림자를 4개 사용함! 콤마로 여러개! */
   text-shadow: 
+  /* 4방향으로 그림자 1px씩 보냄 */
   2px 0 #000,
   -2px 0 #000,
   0 2px #000,
-  0 -2px #000;
+  0 -2px #000,
+  /* 그림자 셋팅은 추가로! */
+  3PX 3px 5px #000000d0;
+
+  /* 하단마진 mb */
+  margin-bottom: 20px;
 }
 
 /* 메뉴박스 */
@@ -101,12 +108,48 @@ ul {
   /* gap: 10px; */
 }
 
+/* 리스트 링크 */
+.menu a {
+  /* 웹폰트체 적용하기 */
+  font-family: "Asta Sans", sans-serif;
+  /* 글자크기 fz */
+  font-size: 20px;
+  /* 글자색 c */
+  color: #660b48;
+  /* 기본 밑줄 없애기! tdn */
+  text-decoration: none;
+  font-weight:bold;
+
+  /* 이미지를 포함한 글자 인라인 요소간
+  진행방향 세로정렬 vertical-align va */
+  vertical-align: middle;
+  /* 사용값 top/middle/bottom/숫자값 */
+}
+
+/* a에 마우스 오버 시 -> 요소:hover 
+가상클래사 :hover사용! */
+.menu a:hover{
+  /* 글자색 변경 */
+  color: mintcream;
+  /* 윗줄 생성 tdo text-decoration: overline;*/
+  text-decoration: underline;
+  /* 줄 종류 변경 : 파도모양 wavy */
+  text-decoration-style: wavy;
+  /* 그림자 생성 ts */
+  text-shadow: 2px 2px 2px #00000059;
+}
+
 /* 리스트 요소 */
 .menu li {
   /* 인라인 블록으로 display 변경 */
   display: inline-block;
   /* 패딩 p -padding: 위아래 양쪽*/
   padding: 0 5px;
+}
+
+/* 네이버 로고 */
+.menu img{
+  width: 40px;
 }
 
 /* 2.공통클래스 */
@@ -127,7 +170,7 @@ ul {
   margin: 0 auto;
 
   /* 테두리 bd - border:두께 종류 색상 */
-  border: 4px dashed rgb(153, 223, 235);
+  border: 4px dashed #99dfeb;
   /* 패딩 p 
         패딩 셋팅법(마진도 동일함)
         padding: 값; (4방향공통)
@@ -158,4 +201,20 @@ ul {
   text-align: center;
   /* 배경색 bgc */
   background-color: #f38b8b;
+}
+/* 주소요소 */
+.bottom-area address {
+  /* 기본 이탤릭 해제! fsn */
+  font-style: normal;
+  font-size: 18px;
+  /* 줄간격 lh -> line-heught 
+  값으로 기본 숫자만 쓰는 배수를
+  사용함(글자크기의 몇 배) 
+  단위를 사용하면 구체적인 크기로
+  줄간격을 줄 수 있음! */
+  line-height: 1.5;
+
+  /* 글자색 */
+  color:#222
+
 }

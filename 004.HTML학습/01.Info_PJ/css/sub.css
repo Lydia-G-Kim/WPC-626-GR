@@ -6,6 +6,7 @@
 
 /* 초기화 CSS */
 @import url(./reset.css);
+
 /* 상단, 하단 공통모듈 */
 @import url(./commen.css);
 
@@ -94,11 +95,38 @@
     /* 박스설정 */
     margin-bottom: 20px;
     text-align: center;
-    
+
     /* 글자설정 */
     font-size: 15px;
     color: #575757;
 }
 /* 2-5. 기사내용 */
+.contents p{
+    /* 글자설정 */
+    font-size: 18px;
+    /* 줄간격 lh - 숫자값은 배수임! */
+    line-height: 1.7;
+}
 /* 2-6. 기자정보 */
+.reporter{
+    font-size: 16px;
+    color: #333;
+}
 /* 2-7. 기사원문 */
+.article-link{
+    /* 인라인 오른쪽 정렬 */
+    text-align: right;
+}
+/* 버튼 a 요소 */
+.article-link a{
+    /* 디자인 적용 및 부모박스의 문자열 정렬
+    적용되도록 인라인 블록으로 변경 */
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border: 2px dashed #9ff8f1;
+    border-radius: 50%;
+    background-color: #ffaaaa;
+    text-align: center;
+    line-height: 100px;
+}

@@ -38,7 +38,25 @@
   이 속성은 이미 공식적으로는 아니지만
   다른 최신 브라우저에서 사용됨! */
 }
-/* 2-2. 언론사로 */
+/* 각 서브별 타이틀 셋팅 변경하기 */
+/* (1) 경제페이지 */
+.economics {
+  background-image: url(../images/titbg2.jpg);
+}
+/* (2) 사회페이지 */
+.social {
+  background-image: url(../images/titbg3.jpg);
+}
+/* (3) IT/과학페이지 */
+.it {
+  background-image: url(../images/titbg4.jpg);
+}
+/* (4) TV/연예페이지 */
+.tv {
+  background-image: url(../images/titbg5.jpg);
+}
+
+/* 2-2. 언론사로고 */
 /* 2-3. 기사제목 */
 /* 2-4. 기사사진 */
 /* 2-5. 기사내용 */

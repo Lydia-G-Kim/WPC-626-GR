@@ -5,6 +5,13 @@
 /* @import url(결로/파일명); */
 @import url(./commen.css);
 
+/* 공통설정 */
+/* .main-area 직계자식(>) 모두 선택
+별(*)은 모든 것을 선택하는 문자열 */
+.main-area > * {
+  margin-bottom: 20px;
+}
+
 /* 2-1. 서브타이틀 */
 .sub-title {
   /* (1)박스 디자인 */
@@ -67,8 +74,19 @@
 }
 
 /* 2-2. 언론사로고 */
+.press-logo img {
+  height: 32px;
+}
 /* 2-3. 기사제목 */
+.article-title {
+  font-size: 33px;
+}
 /* 2-4. 기사사진 */
+.article-picture {
+  /* figure 요소의 기본 마진, 패딩 초기화 */
+  margin: 0;
+  padding: 0;
+}
 /* 2-5. 기사내용 */
 /* 2-6. 기자정보 */
 /* 2-7. 기사원문 */

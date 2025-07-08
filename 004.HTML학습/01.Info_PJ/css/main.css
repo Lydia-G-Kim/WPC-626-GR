@@ -10,5 +10,10 @@
 /* 메인 페이지에만 적용되는 코드 작성! */
 .main-area{
   /* 메인용 배경색 */
-  background-color: #e7e4df;
+  /* background-color: #e7e4df; */
+  padding: 0;
+  overflow: hidden;
+}
+.main-area img{  
+  vertical-align: top;
 }

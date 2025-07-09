@@ -1,0 +1,7 @@
+REF 사이트
+
+1.
+https://joseph-san.com/
+-> 스크롤 시 메인 배너 부분 가로 방향으로 움직임 (전체화면)
+https://www.studionuts.com.br/
+-> 스크롤 시 메인 배너 부분 가로 방향으로 움직임 (일부화면)

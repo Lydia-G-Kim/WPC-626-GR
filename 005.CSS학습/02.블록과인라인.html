@@ -4,7 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>02. 블록과 인라인</title>
-    <style></style>
+    <style>
+        /* 타이틀 */
+        .title {
+            /* 글자중앙 tac */
+            text-align: center;
+            /* 테두리 bd 5px 보라색 */
+            border: 5px dotted #6614ff;
+            /* 배경색 bgc 연핑크 */
+            background-color: #ff97dc;
+        }
+
+        /* 선택자의 별(*)은 '모든'의 의미! */
+        .ele *{
+            /* 박스모델의 기본속성 디자인주기
+            [박스모델이란?]
+             모든 html 요소를 박스로 파악하여
+             필수 5개의 속성을 셋팅하는 요소모델
+             1. width (가로크기)
+             2. height (세로크기)
+             3. border (테두리)
+             4. margin (바깥여백)
+             5. padding (안쪽여백) */
+        width: 200px;
+        height: 150px;
+        border: 10px solid #73ffb2;
+        margin: 20px;
+        padding: 20px;
+        }
+    </style>
 </head>
 <body>
     <h1 class="tit">02. 블록과 인라인</h1>

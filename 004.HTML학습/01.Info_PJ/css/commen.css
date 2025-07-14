@@ -119,7 +119,7 @@ ul {
 
   /* 이미지를 포함한 글자 인라인 요소간
   진행방향 세로정렬 vertical-align va */
-  vertical-align: middle;
+  vertical-align: 8px;
   /* 사용값 top/middle/bottom/숫자값 */
 }
 

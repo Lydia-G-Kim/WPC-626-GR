@@ -1,0 +1,15 @@
+.news-box {
+    border-top: 2px dashed #ccc;
+    padding: 20px;
+    margin: 50px;
+}
+
+.news-box h3 {
+    display: inline-block;
+    font-size: 20px;
+    padding: 15px;
+    border: 2px solid #99dfeb;
+    border-radius: 20px;
+    background-color: #ffcccc;
+    margin-bottom: 17px;
+}

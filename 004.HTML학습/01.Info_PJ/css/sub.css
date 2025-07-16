@@ -202,14 +202,19 @@
 
 /* 뉴스 공통 제목 디자인 */
 .news-box h3 {
-    display: inline-block;
+    /* display: inline-block; */
     font-size: 20px;
     padding: 15px;
-    border: 2px solid #99dfeb;
-    border-radius: 20px;
-    background-color: #ffcccc;
+    /* border: 2px solid #99dfeb; */
+    /* border-radius: 20px; */
+    /* background-color: #ffcccc; */
     margin-bottom: 17px;
+    /* 배경 그라데이션 */
+    background-image: linear-gradient(to right, #ffaaaa -49%, #ffffff00);
+    /* 최대크기 설정 */
+    /* max-width: 300px; */
 }
+
 
 /* 기사 설명 공통 박스 디자인 */
 .desc-box {
@@ -259,15 +264,58 @@
     border-radius: 20px;
     background-color: #ffcccc;
     margin-bottom: 17px;
+    
 }
 
+/* 뉴스 공통 a링크 */
+.news-box a{
+  font-size: 18px;
+  line-height: 30px;
+}
+/* a 오버시 가상클래스 :hover */
+.news-box a:hover {
+  /* 글자색, 글자 그림자 적용! */
+  color: #99dfeb;
+  text-shadow: 2px 2px 1px #000000;
+}
+
+/* 테크뉴스 파트
+가상요소를 사용하여 앞에 아이콘 넣기
+앞에 넣기 ::before
+뒤에 넣기 ::after
+-> 필수 속성 ->>> content */
+.tech-news a::before {
+  content: '🧪';
+}
+.tech-news a::after{
+  content: '🧬';
+}
 
 /* 오늘의 작품 & 느낌 */
 .work{
   background-image: linear-gradient (45deg, #ffcccc 23%, #99dfeb, #99d);
+  padding: 10px 46px 20px;
+    text-align: center;
+    /* 박스그림자 : bxsh (inset 내부 그림자) */
+    box-shadow: inset 0 0 20px #0000006c;
+    /* box-shadow: inset x축 y축 블러 확장 색; */
+
+    /* 최대크기 설정시 부모박스가 그 크기보다
+    작아지면 auto로 전환하여 크기가 유동적으로 바뀐다! */
+    max-width: 280px;
+    /* 블록요소 무대 중앙! 마영오씨! */
+    margin: 0 auto;
+        /* 마진 중첩의 원리에 따라 작은 마진값이 큰 마진값에 포함됨
+    따라서 위에 마진값인 20px보다 더 큰 값을 주면
+    위 아래 박스 사이의 실제 마진 값이 설정된다! */
+    margin-top: 50px;
+    border-radius: 10px;
+
 }
 
-/* 그라데이션 
+/* 그라데이션 -> 배경 이미지 속성에 쓴다!
+(왜? 예전에는 다 이미지로 만들었으니까!)
+
     [ 선형 그라데이션 : linear-gradient ]
     linear-gradient(방향,색1,색2,...);
     linear-gradient(방향,색1 몇%,색2 몇%,...);
@@ -276,3 +324,38 @@
     1. 방향: to top, to bottom, to left, to right
     2. 각도: 각도deg
     3. 콤마로 나열된 색상 뒤에 %수치를 쓰면 비율조정가능 */
+
+    .work {background-image: linear-gradient(45deg , #ffcccc 23%, #99dfeb, #99d);padding: 10px 46px 20px;text-align: center;}
+
+
+/* 작품 제목 */
+.work h4 {
+    /* font-family: "Asta Sans", sans-serif; */
+    font-family: "Do Hyeon", sans-serif;
+    font-size: 31px;
+    font-weight: normal;
+    margin-bottom: 19px;
+    color: #f8bb9f;
+    -webkit-text-stroke: 0.75px #757575;
+}
+
+/* 작품 이미지 */
+.work img {
+    border: 20px ridge palegoldenrod;
+    max-width: 100%;
+}
+
+/* 작품설명 */
+.work figcaption {
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: normal;
+    color: purple;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* 작품명 */
+.work figcaption cite {
+    font-style: normal;
+    color: navy;
+}

@@ -193,29 +193,6 @@
     /* 외부그림자 */ 5px 4px 3px #0000005b;
 }
 
-/* 뉴스 공통 박스 디자인 */
-.news-box {
-    border-top: 2px dashed #ccc;
-    padding: 20px;
-    margin: 50px;
-}
-
-/* 뉴스 공통 제목 디자인 */
-.news-box h3 {
-    /* display: inline-block; */
-    font-size: 20px;
-    padding: 15px;
-    /* border: 2px solid #99dfeb; */
-    /* border-radius: 20px; */
-    /* background-color: #ffcccc; */
-    margin-bottom: 17px;
-    /* 배경 그라데이션 */
-    background-image: linear-gradient(to right, #ffaaaa -49%, #ffffff00);
-    /* 최대크기 설정 */
-    /* max-width: 300px; */
-}
-
-
 /* 기사 설명 공통 박스 디자인 */
 .desc-box {
   /* 경계선을 위와 아래만 설정함! */
@@ -224,6 +201,18 @@
 
     padding: 20px;
     margin: 50px;
+}
+
+/* 기사 설명 공통 제목 디자인 */
+.desc-box h4 {
+    display: inline-block;
+    font-size: 20px;
+    padding: 15px;
+    border: 2px solid #99dfeb;
+    border-radius: 20px;
+    background-color: #ffcccc;
+    margin-bottom: 17px;
+    
 }
 
 /* 기사 설명 공통 내용박스 디자인
@@ -255,20 +244,41 @@
     box-shadow: 4px 4px 3px #575757d1;
 }
 
-/* 기사 설명 공통 제목 디자인 */
-.desc-box h4 {
-    display: inline-block;
-    font-size: 20px;
-    padding: 15px;
-    border: 2px solid #99dfeb;
-    border-radius: 20px;
-    background-color: #ffcccc;
-    margin-bottom: 17px;
-    
+/* 뉴스 공통 박스 디자인 */
+.news-box {
+  border-top: 2px dashed #ccc;
+  padding: 20px;
+  margin-top: 50px;
 }
+
+/* 뉴스 공통 제목 디자인 */
+.news-box h3 {
+  /* display: inline-block; */
+  font-size: 25px;
+  padding: 15px;
+  /* border: 2px solid gray; */
+  /* border-radius: 20px; */
+  /* background-color: #ededed; */
+  margin-bottom: 17px;
+  /* 배경 그라데이션 */
+  background-image: linear-gradient(to right, lightblue, transparent);
+  /* 최대크기 설정 */
+  max-width: 300px;
+}
+
 
 /* 뉴스 공통 a링크 */
 .news-box a{
+    /* [ 말줄임표시 셋팅하기 : 1,2,3,4 네가지!] */
+  /* 1. 넘치는 자식요소 숨기기 */
+  overflow: hidden;
+  /* 2. 넘치는 텍스트 말줄임표시 나오게하기 */
+  text-overflow: ellipsis;
+  /* 3. 줄바꿈 방지 */
+  white-space: nowrap;
+  /* 4. 말줄임 해당박스는 블록요소로 변경 */
+  display: block;
+
   font-size: 18px;
   line-height: 30px;
 }
@@ -289,6 +299,203 @@
 }
 .tech-news a::after{
   content: '🧬';
+}
+
+/* [테크뉴스 a요소 기본 색 변경하기]
+  순서대로 따로 선택하려면 원래 class를 따로주고
+  그 이름으로 선택하면 되는데 class이름 주지않고
+  선택하는 방법은? 가상클래스 중 first-child
+  같은 가상클래스를 사용한것!
+
+  첫번째 자식 -> 선택요소:first-child
+  마지막째 자식 -> 선택요소:last-child
+  n번째 자식 -> 선택요소:nth-child(순번숫자)
+  -> 주의사항 : 같은종류의 자식요소로 구성된 경우에만
+  사용가능하다!!!
+*/
+/* .tech-news li:first-child a { */
+.tech-news li:nth-child(1) a {
+  color: red;
+}
+/* .tech-news li:last-child a { */
+.tech-news li:nth-child(2) a {
+  color: blue;
+}
+
+/* 랭킹뉴스 박스 */
+.rank-news ol {
+  /* 리스트 스타일 숫자형으로 다시사용
+   ol요소의 기본auto 스타일은 decimal 즉, 숫자형 */
+  list-style: auto;
+  /* 기본 왼쪽패딩을 초기화했으므로 다시 조정함 */
+  padding-left: 10px;
+}
+
+/* 분야별 뉴스 박스 */
+/* dl - dt와 dd의 부모박스 */
+.sec-news dl {
+  /* 넘치는 자식요소 숨기기
+  -> 부가적으로 자식의 float설정이
+  바깥요소로 나가는 것을 차단한다! */
+  overflow: hidden;
+}
+/* dt - 분류타이틀 */
+.sec-news dt {
+  /* 박스설정 */
+  /* display: block; -> dt는 원래 block임! */
+  width: 85px;
+  /* 가로크기를 안주고 자동으로
+  내용만큼 박스 크기를 잡으려고
+  display를 inline-block으로 했었으나
+  가로 크기를 정할 경우 block으로
+  해도 무방하다! */
+
+  /* 마진순서: 위 오른 아래 왼 */
+  margin: 25px 10px 10px 0;
+  padding: 20px;
+  border: 3px dashed #000;
+  /* 원형보더는 값이 50%임! (bdrs50p) */
+  border-radius: 50%;
+  text-align: center;
+  background-color: lightcoral;
+  /* 타이틀 글자 랩핑방지(글자줄바꿈방지) */
+  white-space: nowrap;
+
+  /* dt박스 옆으로 dd가 올라오도록
+  나는 왼쪽(left) 너는 오른쪽으로 올라와!
+  흘러가는 속성 float:left */
+  float: left;
+  /* 다른 블록요소에 영향을 주므로
+  부모박스인 dl에 overflow:hidden으로
+  이를 차단한다! */
+
+  /* 글자설정 */
+  font-family: "Jua", sans-serif;
+  font-size: 25px;
+}
+
+/* 개별적으로 dt를 선택하여 글자색, 배경색 바꾸기
+-> 이때 dl은 다른 h3형제 요소와 섞여 있으므로
+child선택자가 아닌 of type선택자를 써야한다! */
+.sec-news dl:first-of-type dt {
+  color: red;
+  background-color: lightgreen;
+}
+.sec-news dl:nth-of-type(2) dt {
+  color: blue;
+  background-color: lightsalmon;
+}
+.sec-news dl:last-of-type dt {
+  color: green;
+  background-color: lightblue;
+}
+
+/* dd - 용어설명박스
+dd타입중에 첫번째 선택하기 
+
+[ 자식요소가 여러가지 섞인 경우 선택하기 ]
+ 가상클래스 ...-of-type 사용
+ 첫번째 타입 -> 요소:first-of-type
+ 마지막째 타입 -> 요소:last-of-type
+ n번째 타입 -> 요소:nth-of-type(순번)
+*/
+.sec-news dd:first-of-type {
+  /* 첫번째 dd를 마진탑을 밀면 
+  아래있는 다른요소도 밀린다! */
+  margin-top: 25px;
+}
+
+/* 가상요소 아이콘넣기 -> 대상요소::before */
+.sec-news dd a::before {
+  /* 필수속성 content -> ct */
+  content: "🍉";
+  /* 윈도우 이모지는 윈도우키+콤마(.) */
+}
+
+/* 포토뉴스 박스 */
+/* 전체 테이블 */
+.photo-news table {
+  max-width: 500px;
+  margin: 0 auto;
+  border: 2px solid #ccc;
+  border-collapse: collapse;
+}
+/* td 비율 설정 */
+/* 첫번째 td */
+.photo-news td:nth-child(1) {
+  /* 가로10%에 조금진한 회색배경 글자중앙 글자두껍게 */
+  width: 10%;
+  text-align: center;
+  font-weight: bold;
+  background-color: #ccc;
+}
+/* 두번째 td */
+.photo-news td:nth-child(2) {
+  /* 가로60%에 옅은회색배경 양쪽패딩 20px */
+  width: 60%;
+  background-color: #e4e4e4;
+  padding: 0 20px;
+}
+/* 세번째 td */
+.photo-news td:nth-child(3) {
+  /* 가로30%에 옅은회색배경 패딩 5px */
+  width: 30%;
+  padding: 5px;
+  background-color: #e4e4e4;
+}
+
+/* 두번째 tr의 모든 td에 위,아래 테두리 넣기
+-> 주의사항: 디자인은 항상 td에 한다! */
+.photo-news table tr:nth-child(2) td {
+  border-top: 2px solid #ccc;
+  border-bottom: 2px solid #ccc;
+}
+
+/* a글자 셋팅변경 */
+.photo-news a {
+  /* 공통뉴스 .news-box에서 
+  줄바꿈방지 셋팅했었음! */
+  /* 줄바꿈 다시 허용!->여러줄 처리시 필요! */
+  white-space: normal;
+
+  /* 여러줄 처리 말줄임 셋팅하기 : 5가지!!! */
+  /* 1.웹킷용 박스 디스플레이 */
+  display: -webkit-box;
+  /* 2.넘치는 자식요소 숨기기 */
+  overflow: hidden;
+  /* 3.넘치는 텍스트 말줄임 설정 */
+  text-overflow: ellipsis;
+  /* 4.말줄임 처리 줄수 설정
+    (값 숫자가 처리줄수임) */
+  -webkit-line-clamp: 2;
+  /* 5.말줄임 처리 방향설정
+    (라인진행은 수직방향vertical) */
+  -webkit-box-orient: vertical;
+}
+/* 테이블 이미지 */
+.photo-news img {
+  width: 100%;
+  /* 이미지 비율 강제 설정속성
+  aspect-ratio 값을 2/1 가로:세로 가 2:1임 */
+  aspect-ratio: 4/3;
+}
+
+/* 포토뉴스 제목 디자인 재정의! */
+.photo-news h3 {
+  /* 배경색제거 글자중앙 최대가로 제거 */
+  background: transparent;
+  text-align: center;
+  max-width: none;
+}
+/* 가상요소 앞에 넣기 */
+.photo-news h3::before {
+  content: "📸";
+  margin-right: 10px;
+}
+/* 가상요소 뒤에 넣기 */
+.photo-news h3::after {
+  content: "📺";
+  margin-left: 10px;
 }
 
 /* 오늘의 작품 & 느낌 */
@@ -358,4 +565,27 @@
 .work figcaption cite {
     font-style: normal;
     color: navy;
+}
+
+
+/* 뉴스 공통 박스 디자인 */
+.news-box {
+    border-top: 2px dashed #ccc;
+    padding: 20px;
+    margin: 50px;
+}
+
+/* 뉴스 공통 제목 디자인 */
+.news-box h3 {
+    /* display: inline-block; */
+    font-size: 20px;
+    padding: 15px;
+    /* border: 2px solid #99dfeb; */
+    /* border-radius: 20px; */
+    /* background-color: #ffcccc; */
+    margin-bottom: 17px;
+    /* 배경 그라데이션 */
+    background-image: linear-gradient(to right, #ffaaaa -49%, #ffffff00);
+    /* 최대크기 설정 */
+    /* max-width: 300px; */
 }

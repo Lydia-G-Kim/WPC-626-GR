@@ -3,6 +3,18 @@
 /* 아카이브 사이트 공통셋팅 CSS - core.css */
 
 /* 1. 웹폰트 */
+/* @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Seymour+One&display=swap'); */
+/* font-family: "Alfa Slab One", serif; 영어 */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Seymour+One&family=Sunflower:wght@300&display=swap'); */
+/* font-family: "Sunflower", sans-serif; 한국어 */
+
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Sunflower:wght@300&display=swap');
+
+/* 웹폰트 전체 적용하기 */
+body{
+  font-family: "Alfa Slab One", "Sunflower",  serif;
+}
 
 /* 2. 공통 클래스 */
 /* 2-1. 속박스 */
@@ -11,8 +23,6 @@
   max-width: 1440px;
   /* 마영오! */
   margin: 0 auto;
-
-
 }
 /* 인박스 클리어 셋팅 */
 .inbox::after {

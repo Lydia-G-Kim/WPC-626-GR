@@ -54,10 +54,39 @@
 
              */
       /* h2요소 맨앞에 이미지 넣기 */
-      
+      h2::before{
+        content: url(./imgs/blogo.png);
+        /* 이미지 크기 적용 안됨 */
+
+        /* 마진 적용 */
+        margin-right: 20px;
+        /* 인라인 요소간 세로정렬 va */
+        vertical-align: -6px;
+      }
 
       /* 맨뒤 추가요소 ::after */
-      
+      h2::after{
+        content: '';
+        /* 디자인 적용 위해서 inline-block */
+        display: inline-block;
+        width: 40px;
+        height: 60px;
+        border: 2px solid #ff95dc;
+        /* 둥근모서리 bdrs */
+        border-radius: 5px;
+
+        /* 배경이미지 */
+        background: #b7ffff url(./imgs/bg_logo_a_01.png) no-repeat center/80%;
+
+        /* 박스그림자 bxsh */
+        box-shadow: 0px 0PX 20PX #6a5aff,
+        10PX 10PX 5PX 2PX #7cfa82;
+
+        /* 인라인 요소간 세로정렬 va */
+        vertical-align: middle;
+        /* 왼쪽마진 ml */
+        margin-left: 20px;
+      }
 
       /* dl요소 디자인 */
       dl {
@@ -74,35 +103,76 @@
       }
 
       /* 반복되는 요소의 앞에 아이콘 가상요소로 넣기 */
-      
+      dt::before{
+        content: '🧣👗（；´д｀）ゞ';
+        /* 글자크기변경 */
+        font-size: 30px;
+        vertical-align: 2px;
+        color: #ac0d9e;
+      }
       /* dt아이콘 변경 */
       /* dt중 두번째 */
-      
+      dt:nth-of-type(2)::before{
+        content: '🧑🎅';
+      }      
       /* dt중 세번째 */
-      
+      dt:nth-of-type(3)::before{
+        content: '🎭🖼';
+      } 
       /* dt중 네번째 */
-      
+      dt:nth-of-type(4)::before{
+        content: '🧶👔';
+      } 
 
       /* dd전체 before적용하기 */
-      
+      dd::before{
+        content: '👨‍🦰';
+        margin-right: 20px;
+      }
       /* 여자인 경우 이모지 변경 */
+      dd:nth-of-type(3)::before,
+      dd:nth-of-type(4)::before,
+      dd:nth-of-type(8)::before,
+      dd:nth-of-type(9)::before,
+      dd:nth-of-type(11)::before,
+      dd:nth-of-type(12)::before
+      {
+        content: '👩‍🦰';
+      }
       
       /* 남자,여자 같이 출력
       "찬열,펀치" */
-      
+      dd:nth-of-type(13)::before
+      {
+        content: '👨‍🦰👩‍🦰';
+      }
 
       
       /* 스토리의 dd는 가상요소 없애기 */
-      
+      dd.story::before{
+        display: none;
+      }
 
       /* 스토리의 dd 아래 h3 이모지넣기 */
-      
+      dd.story h3::before{
+        content: '🎀';
+        margin-right: 20px;
+      }
 
       /* .story의 첫번째 p태그의 첫번째 글자 디자인 변경하기 */
+      .story p:nth-of-type(1)::first-letter {
+            font-size: 50px;
+            color: #8569ff;
+            font-weight: bold;
+        }
       
 
       /* .story의 첫번째 p태그의 첫번째줄 디자인 변경하기 */
-      
+      .story p:nth-of-type(1)::first-line {
+            font-size: 22px;
+            color: #ff008c;
+            font-family: '궁서';
+        }
 
       /* 두번째 p태그는 태그로 
         첫번째 글자(b태그), 첫번째 줄(span)변경 */
@@ -118,6 +188,12 @@
 
       /* 기타 가상요소 ::selection */
       /* 드래그 선택시 글자색 배경색 설정변경! */
+      /* p::selection{ */
+      ::selection{
+        color: #00fff2;
+        background-color: #000000;
+      }
+      /* 전체에 적용하고 싶으면 바로 ::selection을 사용! */
       
       
     </style>
@@ -151,7 +227,7 @@
       <dd class="story">
         <h3>시놉시스</h3>
         <p>
-          불멸의 삶을 끝내기 위해 인간 신부가 필요한 도깨비, 그와 기묘한 동거를
+          불멸의 삶을 끝내기 위해 인간 신부가필요한 도깨비, 그와 기묘한 동거를
           시작한 기억상실증 저승사자. 그런 그들 앞에 '도깨비 신부'라 주장하는
           '죽었어야 할 운명'의 소녀가 나타나며 벌어지는 신비로운 낭만 설화
         </p>

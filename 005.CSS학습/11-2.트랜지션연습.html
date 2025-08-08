@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>트랜지션 연습</title>
+    <style>
+      /* css 코드 구역 */
+      html,body{
+        height: 100%;
+      }
+      body {
+        background-image: linear-gradient(to bottom, #25c74d, #25c74d 30%, #c5e245 60%);
+      }
+      /* 애니박스 */
+      .ani-box{
+        /* 부모자격 */
+        position: relative;
+        top: 200px;
+        height: 400px;
+
+        outline: 2px dotted #c725a4;
+      }
+      /* 자동차 */
+      #car-box{
+        position: absolute;
+        /* 자동차 처음에 나가있음 */
+        left: 0%;
+        bottom: 0;
+        width: 550px;
+        height: 300px;
+        z-index: 1;
+        /* 자동차 배경이미지
+        -> 배경이미지는 css에서 변경 가능하기 때문에
+        이미지 요소 대신 박스배경을 사용함 */
+        background: url(./images/car.png) no-repeat 0/100%;
+      }
+        /* 바트박스 */
+        #bart-box{
+            position: absolute;
+            top: 100px;
+            left: 50%;
+        }
+        /* 바트이미지 */
+        #bart-box img{
+            width: 150px;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- 바트심슨 자동차타기 애니박스 -->
+    <div class="ani-box">
+     <!-- 자동차 박스 -->
+      <div id="car-box">
+      </div>
+
+      <!-- 바트심슨 박스 -->
+      <div id="bart-box">
+        <img src="./images/Bart_Simpson.png" alt="바트심슨" />
+      </div>
+
+    </div>
+  </body>
+</html>

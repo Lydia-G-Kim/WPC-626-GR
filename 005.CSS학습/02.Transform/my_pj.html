@@ -14,7 +14,7 @@
         /* background: url(./images//bg-main.jpg) no-repeat fixed center top/cover; */
 
         /* 1. 이미지 */
-        background-image: url(./images/bg-main.jpg);
+        background-image: url(./swf/swf-main.PNG);
         /* 2. 반복여부 */
         background-repeat: no-repeat;
         /* 3. 고정 */
@@ -28,27 +28,27 @@
                     1) contain -> 배경 이미지가 모두 보임(비율 맞게)
                     2) cover -> 비율에 맞게 대상박스의 빈 공간이 없음!
                     3) 모두 채운 후 비율 없이 만드는 방법 100% 100%(화면에 맞게 찌그러짐) */
-        background-size: cover;
+        background-size: contain;
       }
 
       /* 1. 제목 */
       .main-title{
         /* 박스셋팅 */
         text-align: center;
-        background-color: #fff34a5d;
-        border-radius: 50px;
+        background-color: #96111162;
+        border-radius: 20px;
 
         /* 글자셋팅 */
-        color: #ffe9fb;
+        color: #ffffff;
         font-size: 50px;
         line-height: 100px;
 
         /* 글자테두리 */
         text-shadow:
-        1px 0  #ea4cff,
-        -1px 0  #ea4cff,
-        0 1px  #ea4cff,
-        0 -1px  #ea4cff;
+        2px 0  #000,
+        -2px 0  #000,
+        0 2px  #000,
+        0 -2px  #000;
         /* -webkip-text-stroke: 1px red; */
       }
 
@@ -57,7 +57,7 @@
         /* 박스셋팅 */
         max-width: 1500px;
         margin: 100px auto;
-        border: 10px solid #ffcff3;
+        border: 10px solid #ff0000;
         border-radius: 20px;
         padding: 20px;
 
@@ -88,22 +88,52 @@
       }
       /* 캐릭터박스 공통 */
       .main-contents > div{
+        position: relative;
         /* 옆으로 흐르게 fl */
         float: left;
-        /* 5등분하기 */
-        width: calc(100%/5);
+        /* 6등분하기 */
+        width: calc(100%/6);
         /* 중앙정렬 tac */
         text-align: center;
         }
-    /* 5번째 div 이후 자식 마진 탑주기 */
-    .main-contents > div:nth-child(5) ~ div{
+
+        /* span 타이틀 */
+        .main-contents > div span {
+          position: absolute;
+          bottom: 0;
+          
+          /* 위치 값으로 크기 주기 */
+          left: 0;
+          right: 0;
+
+          /* 글자 셋팅 */
+          color: #ffffff;
+          text-align: center;
+          font-weight: bold;
+          -webkit-text-stroke: .2px #000;
+          font-size: 24px;
+
+          /* 처음에 투명 */
+          opacity: 0;
+
+          /* 트랜지션 */
+          transition: 0.3s 0.6s;
+        }
+
+        .main-contents > div:hover span {
+          opacity: 1;
+        }
+
+
+    /* 6번째 div 이후 자식 마진 탑주기 */
+    .main-contents > div:nth-child(6) ~ div{
           /* 위쪽 마진 */
           margin-top: 20px;
     }
       /* 캐릭터 이미지 */
       .main-contents > div img{
-        width: 200px;
-        height: 200px;
+        width: 170px;
+        height: 170px;
         /* 원형 */
         border-radius: 50%;
 
@@ -130,7 +160,7 @@
                 /* y축 회전 :tfry */
                 transform: rotateY(180deg);
                 /* 동시효과중 필터주기 */
-                filter: grayscale(100%)
+                filter: contrast(200%);
                 /* CSS 필터 적용하기
                     : 필터속성은 흑백,흐림,세피아,명암,
                     채도 등 출력이미지를 변경하고자 할때
@@ -148,7 +178,7 @@
                 /* 미리 x축 회전 해놓기 tfrx */
                 transform: rotateX(180deg);
                 /* 필터 블러 */
-                filter: blur(2px);
+                filter: invert(200%);
             }
             /* 오버 시 원상복귀 */
             #transform-box2:hover img{
@@ -168,7 +198,7 @@
         *********************************************/
             #transform-box3:hover img{
                 /* x축 이동 tftx */
-                transform: translateX(-50%);
+                transform: translateY(-50%);
                 /* -> % 단위 기준은 항상 자기자신의 크기다! */
             }
         /********************************************* 
@@ -181,7 +211,7 @@
         *********************************************/
             #transform-box4:hover img{
                 /* y축 이동 tfty */
-                transform: translateY(200%);
+                transform: translatex(200%);
                 /* -> % 단위 기준은 항상 자기자신의 크기다! */
             }
         /********************************************* 
@@ -200,7 +230,7 @@
 
                 /* translate: -100%; -> x축 이동 */
                 /* translate: 0 -100%; -> y축 이동 */
-                translate: -100% -100%; /* -> x, y축 동시이동 */
+                translate: -100% -50%; /* -> x, y축 동시이동 */
 
                 /********************************************
                 원래는 translate는 transform하위 셋팅 속성임!
@@ -214,7 +244,7 @@
                 ********************************************/
 
                 /* 투명도 조정 opacity속성 */
-                opacity: 0.5;
+                opacity: 0.2;
             }
 
         /************************************** 
@@ -276,7 +306,8 @@
                 /* x축 skew */
                 /* transform: skewX(30deg); */
                 /* y축 skew */
-                transform: skewY(30deg)
+                transform: skewY(30deg);
+                border-radius: 0%;
             }
 
         /******************************************** 
@@ -296,9 +327,13 @@
              sxale: 1 값; -> y 확대/축소
 
         ********************************************/
+            #transform-box8 img{
+                /* transform: scale(2); */
+                scale: 2;
+            }
             #transform-box8:hover img{
                 /* transform: scale(2); */
-                scale: 2
+                scale: -.5;
             }
 
         /********************************************
@@ -329,6 +364,47 @@
                 transition: 10s ease-in-out;
             }
 
+            #transform-box11:hover img{
+                transform:
+                scale(-10)
+                translate(-200%, 100%)
+                rotateX(1500deg)
+                skewX(100deg)
+                rotate(3800deg);
+
+                /* 트랜지션 시간 늘리기 */
+                transition: 10s ease-in-out;
+            }
+            #transform-box12:hover img{
+                /* y축 이동 tft */
+                /* transform: translate(-100%, -100%); */
+                /* -> % 단위 기준은 항상 자기자신의 크기다! */
+
+                /* translate: -100%; -> x축 이동 */
+                /* translate: 0 -100%; -> y축 이동 */
+                /* -> x, y축 동시이동 */
+                translate: 100% 100%;
+                transform:
+                scale(-10)
+                translate(200%, 100%);    
+                /* 트랜지션 시간 늘리기 */
+                transition: 10s ease-in-out;
+
+                /********************************************
+                원래는 translate는 transform하위 셋팅 속성임!
+                translate의 사용율이 높아짐에 따라 속성 값으로 독립됨!
+
+                [ translate 속성 ]
+                 translate: 값 값; -> x,y축 이동설정값
+                 translate: 값; -> x축 이동설정값
+                 translate: 0 값; -> y축 이동설정값
+
+                ********************************************/
+
+                /* 투명도 조정 opacity속성 */
+                opacity: 0.5;
+            }
+
             /* 인트로 등장 애니메이션 설정하기 */
             /* animate를 배우기 전이므로 :hover를 사용! */
             .main-contents{
@@ -351,34 +427,53 @@
     <!-- 2. 컨텐츠 박스 -->
     <section class="main-contents">
       <div id="transform-box1">
-        <img src="images/cast01.jpg" alt="캐릭터" />
+        <img src="swf/AG.PNG" alt="AG" />
+        <span>AG SQUAD</span>
       </div>
       <div id="transform-box2">
-        <img src="images/cast02.jpg" alt="캐릭터" />
+        <img src="swf/BS.PNG" alt="BS" />
+        <span>BUMSUP</span>
       </div>
       <div id="transform-box3">
-        <img src="images/cast03.jpg" alt="캐릭터" />
+        <img src="swf/MT.PNG" alt="MT" />
+        <span>MOTIV</span>
       </div>
       <div id="transform-box4">
-        <img src="images/cast04.jpg" alt="캐릭터" />
+        <img src="swf/OG.PNG" alt="OG" />
+        <span>OSAKA Ojo Gang</span>
       </div>
       <div id="transform-box5">
-        <img src="images/cast05.jpg" alt="캐릭터" />
+        <img src="swf/RH.PNG" alt="RH" />
+        <span>RHTokyo</span>
       </div>
       <div id="transform-box6">
-        <img src="images/cast01.jpg" alt="캐릭터" />
+        <img src="swf/RF.PNG" alt="RF" />
+        <span>ROYAL FAMILY</span>
       </div>
       <div id="transform-box7">
-        <img src="images/cast02.jpg" alt="캐릭터" />
+        <img src="swf/AG.PNG" alt="AG" />
+        <span>AG SQUAD</span>
       </div>
       <div id="transform-box8">
-        <img src="images/cast03.jpg" alt="캐릭터" />
+        <img src="swf/BS.PNG" alt="BS" />
+        <span>BUMSUP</span>
       </div>
       <div id="transform-box9">
-        <img src="images/cast04.jpg" alt="캐릭터" />
+        <img src="swf/MT.PNG" alt="MT" />
+        <span>MOTIV</span>
       </div>
       <div id="transform-box10">
-        <img src="images/cast05.jpg" alt="캐릭터" />
+        <img src="swf/OG.PNG" alt="OG" />
+        <span>OSAKA Ojo Gang</span>
+      </div>
+      <div id="transform-box11">
+        <img src="swf/RH.PNG" alt="RH" />
+        <span>RHTokyo</span>
+      </div>
+      <div id="transform-box12">
+        <img src="swf/RF.PNG" alt="RF" />
+        <span>ROYAL FAMILY</span>
+    </div>
       </div>
     </section>
   </body>

@@ -1,0 +1,82 @@
+@charset "utf-8";
+/* 심슨 가족 인사 애니메이션 CSS - simpson.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap');
+
+/* 전체박스 */
+.house{
+    position: relative;
+    /* 부모자격 - 하위 앱솔루트 요소들의 */
+    width: 800px;
+    height: 441px;
+
+    margin: 0 auto;
+
+    /* 배경이미지 */
+    background: url(../images/house.png) no-repeat;
+
+    /* 문(.door)을 원근 입체로 보이게 하기 위해
+    부모 요소인 .house에 원근 설정을 한다!
+        perspective: 수치값;
+        -> 수치값의 의미는 기준축으로부터 소실점까지의 거리!
+        -> 이 값이 어떤 기준 수치 값보다 작으면 원근이 심해진다 */
+    perspective: 480px;
+
+    /* 넘치는 자식요소 숨기기 */
+    overflow: hidden;
+}
+
+/* 임시로 숨기기 */
+.maggie ~ * {
+    display: none;
+}
+
+/* 1. 심슨 */
+.simpson{
+    position: absolute;
+    top: 300px;
+    left: 355px;
+    /* 부모는? .house */
+    width: 33px;
+}
+
+/* 2. 문 */
+.door{
+    position: absolute;
+    top: 286px;
+    left: 357px;
+    /* 부모는? .house */
+
+    /* 문 회전축 오른쪽으로 변경 */
+    transform-origin: right;
+    /* 문 y축 회전 테스트 */
+    /* rotate: y 130deg; */
+}
+
+/* 3. 마지심슨 */
+.marge{
+    position: absolute;
+    bottom: -188px;
+    right: -300px/* -212px */;
+    width: 400px;
+    transform-origin: bottom;
+    rotate: 0deg/* -16deg */;
+}
+
+/* 4. 리사 */
+.lisa{
+    position: absolute;
+    top: 164px;
+    left: -234px/* -37px */;
+    width: 180px;
+    rotate: 90deg;
+}
+
+/* 5. 메기 */
+.maggie{
+    position: absolute;
+    top: 278px;
+    left: 572px;
+    width: 170px;
+    rotate: 0deg;
+}

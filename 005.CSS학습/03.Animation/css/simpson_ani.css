@@ -138,3 +138,37 @@
         rotate: -16deg;
     }
 }
+
+/* 4-1. 리사심슨 */
+.lisa{
+    /* 애니메이션 - animation: 이시이지반방마 */
+    animation: lisa-ani .8s ease-out 6s forwards;
+}
+/* 4-1. 리사심슨 애니 키프레임 */
+@keyframes lisa-ani {
+    to{
+        left: -26px;
+    }
+}
+
+/* 5-1. 메기심슨 */
+.maggie{
+    /* 애니메이션 - animation: 이시이지반방마 */
+    animation: 
+    /* 등장애니 */
+    maggie-ani .8s ease-out 6.5s forwards,
+    /* 업다운애니 */
+    maggie-updown-ani .5s ease-in-out 7.3s infinite alternate;
+}
+/* 5-2-1. 메기심슨 애니 키프레임 : 등장 */
+@keyframes maggie-ani {
+    to{
+        bottom: -55px;
+    }
+}
+/* 5-2-2. 메기심슨 애니 키프레임 : 업다운 */
+@keyframes maggie-ani {
+    to{
+        translate: 0 5%;
+    }
+}

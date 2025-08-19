@@ -66,8 +66,8 @@
 /* 4. 리사 */
 .lisa{
     position: absolute;
-    top: 164px;
-    left: -234px/* -37px */;
+    top: 90px;
+    left: -234px;
     width: 180px;
     rotate: 90deg;
 }
@@ -75,8 +75,7 @@
 /* 5. 메기 */
 .maggie{
     position: absolute;
-    top: 278px;
-    left: 572px;
+    bottom: -55px;
+    left: 10px;
     width: 170px;
-    rotate: 0deg;
 }

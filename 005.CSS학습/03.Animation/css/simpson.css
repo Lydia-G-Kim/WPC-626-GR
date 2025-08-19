@@ -75,7 +75,7 @@
 /* 5. 메기 */
 .maggie{
     position: absolute;
-    bottom: -55px;
-    left: 10px;
-    width: 170px;
+    bottom: -230px;/* -55px; */
+    left: 77px;
+    width: 165px;
 }

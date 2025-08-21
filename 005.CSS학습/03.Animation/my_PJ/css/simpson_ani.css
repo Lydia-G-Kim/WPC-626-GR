@@ -39,44 +39,44 @@
 }
 
 /* 2-1. 심슨 애니 호출 설정 */
-.simpson{
+.heartsping{
     /* 애니메이션 - animation: 이시이지반방마 */
-    animation: simpson-ani 5s .5s forwards;
+    animation: heartsping-ani 5s .5s forwards;
 }
 
-/* 2. 심슨 걸어나오기 키프레임 */
-@keyframes simpson-ani {
+/* 2. 하츄핑 걸어나오기 키프레임 */
+@keyframes heartsping-ani {
     0%{
-        top: 305px;
-        left: 351px;
-        width: 31px;
+        top: 347px;
+        left: 574px;
+        width: 60px;
     }
     5%{
-        top: 310px;
-        left: 356px;
-        width: 37px;
+        top: 357px;
+        left: 556px;
+        width: 65px;
         /* 문보다 위 */
         z-index: 1;}
     10%{
-        top: 320px;
-        left: 376px;
-        width: 43px;
+        top: 367px;
+        left: 480px;
+        width: 65px;
         rotate: 0deg;
         /* 문보다 위 */
         z-index: 1;
     }
     20%{
-        top: 330px;
-        left: 385px;
-        width: 48px;
+        top: 350px;
+        left: 455px;
+        width: 80px;
         rotate: -10deg;
         /* 문보다 위 */
         z-index: 1;
     }
     30%{
         top: 336px;
-        left: 368px;
-        width: 58px;
+        left: 388px;
+        width: 90px;
         rotate: 2deg;
         /* 문보다 위 */
         z-index: 1;
@@ -84,7 +84,7 @@
     50%{
         top: 336px;
         left: 357px;
-        width: 80px;
+        width: 100px;
         rotate: -9deg;
         /* 문보다 위 */
         z-index: 1;
@@ -92,7 +92,7 @@
     60%{
         top: 300px;
         left: 363px;
-        width: 100px;
+        width: 130px;
         rotate: 5deg;
         /* 문보다 위 */
         z-index: 1;
@@ -136,60 +136,60 @@
     }
 }
 
-/* 3-1. 마지심슨 애니메이션 호출설정 */
-.marge{
+/* 3-1. 로미 애니메이션 호출설정 */
+.romi{
     /* 애니메이션 - animation:이시이지반방마 */
-    animation: marge-ani .8s ease-out 5.5s forwards;
+    animation: romi-ani .8s ease-out 5.5s forwards;
 }
-/* 3-2. 마지심슨 애니 키프레임 */
-@keyframes marge-ani {
+/* 3-2. 로미 애니 키프레임 */
+@keyframes romi-ani {
     /* form 혹은 0%는 설정이 원본셋팅과 같다면
     생략할 수 있다! */
     /* to 혹은 100% 셋팅만 설정 */
     to{
-        right: -212px;
+        right: 10px;
         rotate: -16deg;
     }
 }
 
-/* 4-1. 리사심슨 */
-.lisa{
+/* 4-1. 해핑 */
+.hp{
     /* 애니메이션 - animation: 이시이지반방마 */
-    animation: lisa-ani .8s ease-out 6s forwards;
+    animation: hp-ani .8s ease-out 6s forwards;
 }
-/* 4-1. 리사심슨 애니 키프레임 */
-@keyframes lisa-ani {
+/* 4-1. 해핑 애니 키프레임 */
+@keyframes hp-ani {
     to{
         left: -30px;
     }
 }
 
-/* 5-1. 메기심슨 */
-.maggie{
+/* 5-1. 믿어핑 */
+.be{
     /* 애니메이션 - animation: 이시이지반방마 */
     animation: 
     /* 등장애니 */
-    maggie-ani .8s ease-out 6.5s forwards,
+    be-ani .8s ease-out 6.5s forwards,
     /* 업다운애니 */
-    maggie-updown-ani .5s ease-in-out 7.3s infinite alternate,
+    be-updown-ani .5s ease-in-out 7.3s infinite alternate,
     /* 좌우애니 */
-    maggie-comego-ani 5s ease-in-out 12s infinite alternate;
+    be-comego-ani 5s ease-in-out 12s infinite alternate;
 }
 
-/* 5-2-1. 메기심슨 애니 키프레임 : 등장 */
-@keyframes maggie-ani {
+/* 5-2-1. 믿어핑 애니 키프레임 : 등장 */
+@keyframes be-ani {
     to{
-        bottom: -80px;
+        bottom: 0px;
     }
 }
-/* 5-2-2. 메기심슨 애니 키프레임 : 업다운 */
-@keyframes maggie-updown-ani {
+/* 5-2-2. 믿어핑 애니 키프레임 : 업다운 */
+@keyframes be-updown-ani {
     to{
         translate: 0 5%;
     }
 }
-/* 5-2-3. 메기심슨 애니 키프레임 : 좌우 */
-@keyframes maggie-comego-ani {
+/* 5-2-3. 믿어핑 애니 키프레임 : 좌우 */
+@keyframes be-comego-ani {
     to{
         left: 630px;
     }

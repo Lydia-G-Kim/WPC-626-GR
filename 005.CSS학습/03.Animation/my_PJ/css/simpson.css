@@ -40,7 +40,7 @@ body{
     /* margin: 0 auto; */
 
     /* 배경이미지 */
-    background: url(../images/house.png) no-repeat;
+    background: url(../images/hearts/hearts_house.png) no-repeat center/auto;
 
     /* 문(.door)을 원근 입체로 보이게 하기 위해
     부모 요소인 .house에 원근 설정을 한다!
@@ -54,24 +54,25 @@ body{
 }
 
 /* 임시로 숨기기 */
-/* .maggie ~ * {
+.be ~ * {
     display: none;
-} */
+}
 
-/* 1. 심슨 */
-.simpson{
+/* 1. 하츄핑 */
+.heartsping{
     position: absolute;
-    top: 300px;
-    left: 355px;
+    top: 347px;
+    left: 574px;
     /* 부모는? .house */
-    width: 33px;
+    width: 60px;
 }
 
 /* 2. 문 */
 .door{
     position: absolute;
-    top: 286px;
-    left: 357px;
+    top: 308px;
+    left: 558px;
+    width: 104px;
     /* 부모는? .house */
 
     /* 문 회전축 오른쪽으로 변경 */
@@ -84,8 +85,8 @@ body{
 .words{
     /* 앱솔루트 poa */
     position: absolute;
-    top: 10px;
-    left: 165px;
+    top: 4px;
+    left: 73px;
     /* 부모는? .house */
 
     /* 트랜스폼 스케일로 축소 */
@@ -97,7 +98,7 @@ body{
     padding: 30px;
     border-radius: 50%;
     text-align: center;
-    border: 10px solid #883e5d;
+    border: 10px solid #d8ff00;
 
     /* 글자설정
     font:스두크/줄체->크(기)체(글자체) 필수*/
@@ -127,7 +128,7 @@ body{
     -> 양쪽 보더는 투명색 설정(transparent) */
     width: 0;
     height: 0;
-    border-top: 33px solid #883e5d;
+    border-top: 33px solid #d8ff00;
     border-right: 20px solid transparent;
     border-left: 20px solid transparent;
 }
@@ -155,27 +156,27 @@ body{
     border-left: 20px solid transparent;
 }
 
-/* 3. 마지심슨 */
-.marge{
+/* 3. 로미 */
+.romi{
     position: absolute;
-    bottom: -188px;
-    right: -300px/* -212px */;
-    width: 400px;
+    bottom: -66px;
+    right: -185px /* -212px */;
+    width: 250px;
     transform-origin: bottom;
-    rotate: 0deg/* -16deg */;
+    rotate: 0deg /* -16deg */;
 }
 
-/* 4. 리사 */
-.lisa{
+/* 4. 해핑 */
+.hp{
     position: absolute;
-    top: 50px;
+    top: 100px;
     left: -234px;
-    width: 170px;
+    width: 157px;
     rotate: 90deg;
 }
 
-/* 5. 메기 */
-.maggie{
+/* 5. 믿어핑 */
+.be{
     position: absolute;
     bottom: -230px;/* -55px; */
     left: 77px;
@@ -185,7 +186,7 @@ body{
 /* 6. 바트 */
 .bart{
     position: absolute;
-    top: -320px;/* -115px; */
+    top: -420px;/* -115px; */
     right: 140px;
     width: 200px;
 

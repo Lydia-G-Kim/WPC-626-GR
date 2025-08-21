@@ -59,11 +59,30 @@
     // 2-1. 배경이미지 넣기
     document
     // 클래스 가져오기
+        // get 가져와라! Elements 요소들을!
+        // By Class Name 클래스명으로!
     .getElementsByClassName('pbox')
     // 클래스는 여러개일 수 있으므로 0부터 시작
     .item(0)
     // css 배경 변경하기
+    // style 객체 안에 각종 css 속성이 모두 만들어져 있음!
     .style.background = 'url(./images/kimbs.jpg) no-repeat top/cover'
+
+    // 2-2. 글자색 변경
+    document.getElementsByClassName('pbox')
+    .item(0).style.color = 'pink';
+
+    // 2-3. 글자 그림자 넣기
+    document.getElementsByClassName('pbox')
+    .item(0).style.texstShadow = '1px 1px 1px red';
+
+    // 2-4. 박스 둥글게 만들기
+    document.getElementsByClassName('pbox')
+    .item(0).style.borderRadius = '50%';
+
+    // 2-5. 트랜지션 넣기
+    document.getElementsByClassName('pbox')
+    .item(0).style.transition = '2s';
 
   } /////////// 김비서나와라 함수 ///////////
   //////////////////////////////////////////

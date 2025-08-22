@@ -54,9 +54,9 @@ body{
 }
 
 /* 임시로 숨기기 */
-.be ~ * {
+/* .be ~ * {
     display: none;
-}
+} */
 
 /* 1. 하츄핑 */
 .heartsping{
@@ -183,12 +183,12 @@ body{
     width: 165px;
 }
 
-/* 6. 바트 */
-.bart{
+/* 6. 트러핑 */
+.tr{
     position: absolute;
     top: -420px;/* -115px; */
     right: 140px;
-    width: 200px;
+    width: 120px;
 
     /* 거꾸로 돌리기 */
     rotate: 180deg;

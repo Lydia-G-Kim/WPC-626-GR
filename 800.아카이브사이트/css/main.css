@@ -230,7 +230,7 @@ core.css의 clb클래스로 처리함! */
   /* 부모는? .left-part */
   width: 1px;
   height: 70%;
-  background-color: gray;
+  background-color: rgb(207, 107, 107);
 }
 /* 링크박스 a요소 */
 .link-box a{

@@ -41,6 +41,50 @@
         box-sizing: border-box;
       }
 
+      /* 원모양 박스 만들기 */
+      .원이야{
+        position: absolute;
+        top: 0;
+        right: 0;
+        /* 부모는? 보이는 상단화면 */
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        /* 배경공통 */
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* 보더박스 */
+        box-sizing: border-box;
+      }
+      /* 원모양 개별셋팅 */
+      .원이야:nth-child(1){
+        right: 400px;
+        background-image: url(./images/apt1.jpg);
+      }
+      .원이야:nth-child(2){
+        right: 200px;
+        background-image: url(./images/apt2.jpg);
+      }
+      .원이야:nth-child(3){
+        background-image: url(./images/apt3.jpg);
+        background-position: center;
+      }
+
+      /* 원이야 클래스에 돌아 클래스를 넣으면 돌게한다! */
+      .원이야.돌아{
+        /* 애니메이션 - animation:이시이지반방마 */
+        animation: 돌아애니 2s linear infinite;
+      }
+
+      /* 키프레임 - 회전하는 키프레임 */
+      @keyframes 돌아애니 {
+        to{
+          rotate: 1turn;
+          /* rotate: 360deg; */
+        }
+      }
+    </style>
+
     </style>
 
 <!-- 자바스크립트 코딩구역! -->
@@ -143,12 +187,16 @@
   ///////////////////////
  </script>
 
+ <!-- 외부JS파일 불러오기 : 익스터널 방식 JS
+  외부JS파일의 확장자는 .js다! -->
+<script src="./js/JS1.기본사용법.js"></script>
   </head>
   <body>
     <!-- 드라마 소개박스 -->
      <p
      class="pbox"
      title="클릭하시면 김비서가 나옵니다!"
+
      onclick="
      // onclick 이벤트 속성은 JS와 연결되는 기본 속성이다
      // 이 구역은 JS 코드 구역임!
@@ -156,7 +204,7 @@
      // -> on+이밴트명 예시) onclick, onmouseover, ...
      // 이벤트 속성은 모든 html 요소에 줄 수 있다!
 
-
+     // 이 구역은 JS 코드 구역임
      // 여기는 JS 문법만 적용된다
      // JS 한줄 주석
      // 경고창 띄우기
@@ -205,12 +253,29 @@
 
      "
      >
-
       나는 요즘 매일 생각한다! <br>
       도대체 <span id="name"></span>
 
       <!-- 김비서에 전달된 요청찍기 -->
        <b class="요청"></b>
      </p>
+     <!-- 원모양박스 -->
+    <div class="박스야">
+      <div class="원이야"
+      onclick="돌아랏(0,'hotpink')"
+      ondblclick="멈춰랏(this)//this는 이벤트 발생요소 자신임!"
+      oncontextmenu="움직여랏(this,1,'bPTnPI5P5Cg')"
+      ></div>
+      <div class="원이야"
+      onclick="돌아랏(1,'skyblue')"
+      ondblclick="멈춰랏(this)"
+      oncontextmenu="움직여랏(this,2,'IjpqaaJ5LfA')"
+      ></div>
+      <div class="원이야"
+      onclick="돌아랏(2,'yellow')"
+      ondblclick="멈춰랏(this)"
+      oncontextmenu="움직여랏(this,3,'728tqnJ6kKs')"
+      ></div>
+    </div>
   </body>
 </html>

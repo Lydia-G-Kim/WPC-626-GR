@@ -148,7 +148,9 @@ a.my-cha-link {
   text-align: center;
 
   /* 글자설정 */
-  font-size: 36px;
+  font-size: 28px;
+  color: #ffffff;
+  font-family: "Seymour One", serif;
 }
 
 /* 구분선은 타이틀박스의 가상요소로 구현함 */
@@ -167,7 +169,8 @@ a.my-cha-link {
 /* 파트제목 */
 .part-title{
   color: #ffffff;
-  font-size: 30px;
+  font-size: 24px;
+  font-family: "Sunflower", serif;
   text-align: center;
   padding-bottom: 20px;
   border-bottom: 1px solid #ffa8a8;

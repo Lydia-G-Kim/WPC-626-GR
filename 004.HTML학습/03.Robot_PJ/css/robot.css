@@ -28,11 +28,24 @@ body * {
 .robot-head{
     position: relative;
     /* 부모자격 - 자식앱솔루트의 부모! */
-    width: 250px;
-    height: 250px;
+    width: 180px;
+    height: 201px;
+
     /* 무대중앙에 마.영.오! */
     margin: 0 auto;
+    border-radius: 120px 120px 130px 130px;
 }
+/* 로봇 가발 가상요소로 만들기 */
+.robot-head::after{
+    content: '';
+    position: absolute;
+    top: -35%;
+    left: -35%;
+    width: 170%;
+    height: 150%;
+    background: url(../images/hair_new2.png) no-repeat 0/100% 100%;
+}
+
 /* 자식요소 모두 앱솔루트 만들기 */
 .robot-head > div {
     position: absolute;
@@ -53,20 +66,25 @@ body * {
 
 /* 왼눈 */
 .eye1{
-    left: 50px;
+    left: 50%;
+    translate: -120%;
     background-image: url(../images/e1.jpg);
     z-index: 1;
 }
 /* 오른눈 */
 .eye2{
-    right: 50px;
+    right: 50%;
+    translate: 120%;
     background-image: url(../images/e2.jpg);
     z-index: 1;
 }
 /* 코 */
 .nose{
     top: 59px;
-    left: 100px;
+    left: 50%;
+    translate: -50%;
+    /* 가로중앙 셋팅 */
+
     width: 49px;
     height: 88px;
     border-radius: 20px;
@@ -74,8 +92,11 @@ body * {
 }
 /* 입 */
 .mouth{
-    bottom: 67px;
-    left: 85px;
+    bottom: 22px;
+    left: 50%;
+    translate: -50%;
+    /* 가로중앙 셋팅 */
+
     width: 76px;
     height: 32px;
     background: url(../images/mouth.png) no-repeat center / cover;
@@ -107,14 +128,166 @@ body * {
     margin: 0 auto;
     margin-top: 50px;
 }
+/* 로봇 가슴 가상요소로 만들기 */
+.robot-body::before{
+    content: '';
+    position: absolute;
+    top: -2%;
+    left: -27%;
+    width: 155%;
+    height: 50%;
+    z-index: 1;
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+    background-image: linear-gradient(to bottom, #ff7878, #87ffe1);
+}
+/* 로봇 골반 가상요소로 만들기 */
+.robot-body::after{
+    content: '';
+    position: absolute;
+    top: 80%;
+    left: -15%;
+    width: 130%;
+    height: 40%;
+    z-index: 1;
+    clip-path: polygon(4% 20%, 12% 0%, 88% 0%, 96% 20%, 89% 80%, 50% 100%, 12% 80%);
+    background-image: linear-gradient(to bottom,#fffd87,#7891ff);
+}
+
+/* 몸통 직계자식요소 모두 앱솔루트! */
+.robot-body>div{
+    position: absolute;
+}
 /* 목 */
+.neck{
+    top: -50px;
+    left: 50%;
+    translate: -50%;
+    width: 50px;
+    height: 50px;
+}
+/* 팔 공통 */
+.arm{
+    top: 0;
+    width: 45px;
+    height: 200px;
+}
+/* 팔, 다리 관절 가상요소로 만들기 */
+.arm::before,
+.arm::after,
+.leg::before,
+.leg::after
+{
+    content: '';
+    position: absolute;
+    top: 90%;
+    left: 0%;
+    z-index: 1;
+    width: 100%;
+    height: 20%;
+    border-radius: 40px;
+    border: 2px solid #9bf796;
+    box-sizing: border-box;
+    background-image: linear-gradient(to top, #ffb951, #7a1a76);
+}
+/* 팔, 다리 관절 가상요소 after 변경 */
+.arm::after,
+.leg::after
+{
+    /* 배경색 그라데이션 방향 반대 */
+    background-image: linear-gradient(to bottom, #ffb951, #7a1a76);
+    /* 보더 없앰 */
+    border: none;
+    /* 크기 축소 : x축 0.7 y축 0.7 */
+    scale: .7 .7;
+}
+
 /* 왼팔 */
+.arm1{
+    left: -60px;
+    border-radius: 30px;
+}
 /* 오른팔 */
+.arm2{
+    right: -60px;
+    border-radius: 30px;
+}
+/* 팔하단 span */
+.arm span{
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    width: 80%;
+    height: 70%;
+    border-radius: 10px;
+}
+/* 로봇손 가상요소 */
+.arm span::after{
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    translate: -42%;
+    width: 66px;
+    height: 107px;
+    background: url(../images/hand_left.png) no-repeat 0/100%;
+}
+/* 오른손 변경 */
+.arm2 span::after{
+    background-image: url(../images/hand_right.png);
+    translate: -55%;
+}
+
+/* 어깨 공통 */
+.shdr{
+    top: -10px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
 /* 왼어께 */
+.shdr1{
+    left: -60px;
+}
 /* 오른어깨 */
+.shdr2{
+    right: -60px;
+}
+/* 다리 공통 */
+.leg{
+    top: 100%;
+    width: 70px;
+    height: 250px;
+}
 /* 왼다리 */
+.leg1{
+    left: 0;
+}
 /* 오른다리 */
+.leg2{
+    right: 0;
+}
+/* 다리하단 span */
+.leg span{
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    width: 80%;
+    height: 100%;
+}
+
+
 /* TV */
+.tv{
+    top: 20%;
+    left: 50%;
+    translate: -50%;
+    width: 120px;
+    height: 80px;
+    z-index: 1;
+    /* 가상요소보다 위 */
+
+    background: url(../images/tv.jpg) no-repeat 0/100%;
+}
 
 /************* 4. 하단영역 *************/
 

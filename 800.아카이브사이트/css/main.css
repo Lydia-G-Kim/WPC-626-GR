@@ -34,25 +34,30 @@ body{
 
 /* float 해제 설정 */
 #gnb{
+  /* 플랙스 박스 */
+    display: flex;
+  /* 진행방향 정렬 : 사이간격 일정 */
+    justify-content: space-between;
+
     max-width: 702px;
     margin: 0 auto;
     /* outline: 1px solid pink; */
 }
-#gnb::after{
+/* #gnb::after{
 content: '';
 display: block;
 clear: both;
-}
+} */
 #gnb li{
-    float: left;
+    /* float: left; -> 안씀! */
     /* 높이값 만큼 줄간격 셋팅 */
     line-height: 113px;
 }
-/* 두번째 li부터 끝까지 왼쪽마진 */
-#gnb li+li{
-    margin-left: 15%;
+/* 두번째 li부터 끝까지 왼쪽마진 -> 플렉스는 불필요! */
+/* #gnb li+li{ */
+    /* margin-left: 15%; -> 안씀! */
     /* 마진의 퍼센트 값의 기준은 부모 박스의 크기이다! */
-}
+/* } */
 
 /* 깃허브 박스 */
 .git-box{
@@ -90,7 +95,7 @@ a.my-cha-link {
 
 /*********** 2. 메인영역 ***********/
 .main-area{
-    /* 글자색 모두 흰색 */
+    /* 글자색 모두 블랙 */
     color: #000000;
 }
 
@@ -139,7 +144,7 @@ a.my-cha-link {
 /* 공통 PJ박스 직계 속박스 div */
 .pj-box > div {
   /* 위, 아래 패딩 */
-  padding: 18px 0;
+  padding: 0;
 }
 /********** 2-2-1.제목박스 **********/
 .sub-part-title{
@@ -178,6 +183,9 @@ a.my-cha-link {
 
 /********** 2-2-2.링크박스 **********/
 .link-box{
+  /* 플렉스 박스 */
+  display: flex;
+
   /* 가로크기는 레이아웃은 아니지만
   12그리드 크기를 기준해서 준다! */
   width: calc(100%/12*10);
@@ -199,7 +207,7 @@ a.my-cha-link {
 /* 플롯팅 설정하기 */
 .link-box>div{
   /* 옆으로 흐르게 */
-  float: left;
+  /* float: left; -> 안씀! */
   /* 절반 크기셋팅 */
   width: 50%;
   /* 최소높이값 설정 */

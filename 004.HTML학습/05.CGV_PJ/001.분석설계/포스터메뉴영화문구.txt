@@ -40,4 +40,18 @@
 
 
 
-<iframe width="785" height="442" src="https://www.youtube.com/embed/dkb-CZE-ANk" title="[프랑켄슈타인 : 더 뮤지컬 라이브] 메인 예고편" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="785" height="442" src="https://www.youtube.com/embed/dkb-CZE-ANk" title="[프랑켄슈타인 : 더 뮤지컬 라이브] 메인 예고편" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>\
+
+
+
+
+                onclick="
+                document.querySelector('.screen iframe')
+                .src = `https://www.youtube.com/embed/dkb-CZE-ANk?autoplay=1`;
+                "
+
+                onclick="
+                // dkb-CZE-ANk
+                document.querySelector('.screen iframe')
+                .src = `https://www.youtube.com/embed/dkb-CZE-ANk?autoplay=1`;
+                "

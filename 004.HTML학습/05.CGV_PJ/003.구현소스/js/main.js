@@ -50,3 +50,44 @@ const 아이프레임 = document.querySelector('.screen iframe');
     "
 
 */
+
+
+
+
+// 2. 포스터 메뉴 클릭시 클래스 on 넣기 (나머지는 빼기)
+// 2-1. 이벤트 대상 === 변경대상 -> 포스터 메뉴 a링크
+링크.forEach((el,idx,arr)=>{
+    // el-각요소, idx-순번, arr-html컬렉션 유사배열
+
+    // 2-2. 클릭이벤트 적용 === 변경대상 -> 포스터메뉴 a링크
+    // 이벤트 등록 전문이벤트 addEventListener()를 사용한다!
+    el.addEventListener('click', () => {
+
+        // (1) 모든 li의 on 클래스 제거하기
+        // parentElement
+        arr.forEach(x => {
+            x.parentElement.classList.remove('on');
+        });
+
+        // (2) 포스터메뉴 a링크의 부모인 li에 on넣기
+        // parentElement: a링크의 부모인 li
+        el.parentElement.classList.add('on');
+    }); /////// addEventLisnter 끝 ///////
+
+
+
+
+        // 만약 onclick 이벤트 속성으로 셋팅하면
+        // 이전에 셋팅된 onclick 이벤트 속성 값이 지워진다!
+        // 왜? 한 요소 안에 한 개의 동일 이벤트 속성만 있기 때문!
+    // el.onclick = () => {
+    //     // 2-3. 포스터메뉴 a링크의 부모인 li에 on넣기
+    //     // parentElement: a링크의 부모인 li
+    //     el.parentElement.classList.add('on');
+    // }
+
+}); /////// forEach 끝 ///////
+
+
+링크.forEach(헐=>console.log(헐));
+// -> 링크를 돌면서 변수 헐...에 각 요소를 순서대로 전달한다!

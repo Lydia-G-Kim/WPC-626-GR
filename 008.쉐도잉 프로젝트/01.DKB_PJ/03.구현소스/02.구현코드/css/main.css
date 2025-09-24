@@ -290,7 +290,7 @@ h1.logo::before {
   /* 슬라이드를 부모크기만큼 셋팅 - 변경! */
   width: 100%;
 
-  /* 슬라이드 개수만큼 크기를 설정해준다! -주석 */
+  /* 슬라이드 개수만큼 크기를 설정해준다!-주석 */
   /* width: calc(100% * 3); */
 
   /* 배너이미지크기 */
@@ -319,20 +319,20 @@ h1.logo::before {
 
 /*이동버튼*/
 .abtn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    /*Y축 중앙이동*/
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  /*Y축 중앙이동*/
 }
 
 /*왼쪽버튼*/
 .ab1 {
-    left: 50px;
+  left: 50px;
 }
 
 /*오른쪽버튼*/
 .ab2 {
-    right: 50px;
+  right: 50px;
 }
 
 /***************** 2-2. 캐릭터영역 *****************/
@@ -436,7 +436,7 @@ h1.logo::before {
   /* 양쪽정렬 justify */
   text-align: justify;
 }
-/***************** 2-3.5. 드라마파트메뉴영역 *****************/
+/************* 2-2.5. 드라마파트메뉴 : 스티키메뉴 ***************/
 #spart-menu {
   /* 스티키 포지션 - 상단스크롤 걸림! */
   position: sticky;
@@ -511,6 +511,12 @@ h1.logo::before {
 .intro-part .stit {
   padding-bottom: 0;
 }
+
+/* 영역 서브제목 아이콘 가상요소로 지우기 */
+.intro-part .stit::before {
+  display: none;
+}
+
 /* 하위제목+아이콘 박스 */
 .intro-desc {
   display: flex;
@@ -577,16 +583,79 @@ h1.logo::before {
 }
 
 /***************** 2-4. 미리보기영역 *****************/
-.view-part {
-  height: 660px;
+.preview-area {
+  min-height: 660px;
+}
+
+/* 영역 서브제목 아이콘 가상요소로 앞에 넣기 */
+.preview-area .stit::before {
+  background-image:
+  url(../images/icons/icon1.png);
+}
+
+/* 미리보기 컨텐츠 리스트 ul */
+.preview-area ul.cont-box {
+  gap: 2vh 1.5%;
+}
+
+/* 미리보기 컨텐츠 리스트 li */
+.preview-area li{
+  width: calc((100% - 1.5%*3) / 4);
+  /* 가로크기는 4등분(단, 갭3개의 값을 뺀다!) */
+  aspect-ratio: 320/270;
+  box-shadow: 0 0 10px #ccc;
+  /* 보더박스 */
+  box-sizing: border-box;
+  padding: 24px 20px;
+
+  /* 커서 손가락 */
+  cursor: pointer;
+
+  /* 투명도 .6 */
+  opacity: .6;
+}
+
+/* li오버시 투명도 복원 */
+.preview-area li:hover {
+  opacity: 1;
+}
+
+/* 미리보기 타이틀 */
+.preview-area li h3 {
+  font-size: 2rem;
+  margin-bottom: 14px;
+}
+/* 미리보기 내용 */
+.preview-area li p {
+  font-size: 1.5rem;
+  line-height: 1.9;
+  color: #555;
+  height: 77%;
+  /* 여러줄 말줄임처리 */
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* 여러줄 처리 줄 수 */
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
 }
 /***************** 2-5. 현장포토영역 *****************/
 .real-part {
   height: 906px;
 }
+/* 영역 서브제목 아이콘 가상요소로 앞에 넣기 */
+.real-part .stit::before {
+  background-image:
+  url(../images/icons/icon2.png);
+}
 /***************** 2-6. 대표포스터영역 *****************/
 .poster-part {
   height: 654px;
+}
+/* 영역 서브제목 아이콘 가상요소로 앞에 넣기 */
+.poster-part .stit::before {
+  background-image:
+  url(../images/icons/icon3.png);
 }
 /***************** 2-7. 최신동영상영역 *****************/
 .video-part {

@@ -2,6 +2,7 @@
 /* 도깨비 PJ 메인 페이지 CSS - main.css */
 
 /* 외부 CSS 불러오기 */
+@import url(./common.css);
 @import url(./reset.css);
 @import url(./core.css);
 /* 12그리드 CSS */
@@ -455,72 +456,7 @@ h1.logo::before {
   /* 양쪽정렬 justify */
   text-align: justify;
 }
-/************* 2-2.5. 드라마파트메뉴 : 스티키메뉴 ***************/
-#spart-menu {
-  /* 스티키 포지션 - 상단스크롤 걸림! */
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-  z-index: 999;
-}
-/* 인박스 높이값 초기화 */
-.spart-menu.inbox {
-  height: auto;
-}
-.spart-menu ul {
-  /* 플렉스박스 */
-  display: flex;
-  padding: 12px 0;
-  transition: 0.4s ease-out;
-}
-/* 도깨비메뉴 상위메뉴a */
-.spart-menu ul > li > a {
-  color: #999;
-  font-size: 1.8rem;
-  display: block;
-  padding: 9px 24px;
-  /* 줄바꿈방지 */
-  white-space: nowrap;
-}
-/* 도깨비메뉴 상위li 오버시 a */
-.spart-menu ul > li:hover > a {
-  color: #222;
-}
-/* 하위메뉴가 있는 li만 하위 표시하기 */
-.spart-menu ul > li.be-sub > a::after {
-  content: "∨";
-  display: inline-block;
-  transform: scale(0.5, 0.3);
-  margin-left: 3px;
-}
-/* 현재 선택된 메뉴 li.on 클래스 */
-.spart-menu ul > li.on > a {
-  background-color: red;
-  color: #fff;
-  border-radius: 30px;
-}
 
-/* 도깨비 서브메뉴 */
-.spart-sub-menu {
-  position: absolute;
-  border: 1px solid red;
-  border-radius: 20px;
-  width: 180px;
-  background-color: #fff;
-
-  /* 처음에 숨김 */
-  display: none;
-}
-/* 상위li에 마우스 오버시 서브 보이기 */
-.spart-menu ul > li:hover .spart-sub-menu {
-  display: block;
-}
-/* 도깨비 서브메뉴 a */
-.spart-sub-menu a {
-  display: block;
-  padding: 10px 15px;
-  font-size: 1.8rem;
-}
 /***************** 2-3. 드라마소개영역 *****************/
 .main .intro-part .partbox {
   height: 455px;
@@ -847,61 +783,4 @@ h1.logo::before {
 .btn-box.right button:first-child {
   display: none;
 }
-/***************** 3. 하단영역 *****************/
-.bottom-area {
-  border-top: 1px solid #ccc;
-  padding-top: 20px;
-  padding-bottom: 80px;
-  background: url(../images/footer_bg_tvn-pc.png) no-repeat center/cover;
-}
 
-/* 하단링크박스 */
-.info-link ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0 15px;
-}
-.info-link a {
-  font-size: 1.4rem;
-  line-height: 2.5;
-  white-space: nowrap;
-}
-/* 바로가기 콤보박스 영역 */
-.combo-area {
-  text-align: right;
-}
-.combo-area select {
-  width: 170px;
-  height: 35px;
-  border-radius: 5px;
-  border: none;
-  background-color: rgb(230, 230, 230);
-  font-size: 1.5rem;
-  margin: 5px;
-}
-/* 하단로고박스 */
-.footer__logo {
-  padding: 20px 0;
-}
-/* 회사주소박스 */
-.corp-info {
-  font-style: normal;
-  font-size: 1.5rem;
-  line-height: 1.8;
-}
-/* SNS박스 */
-.sns-box ul {
-  display: flex;
-  gap: 0 5px;
-}
-.sns-box li {
-  width: 35px;
-  height: 35px;
-  /* 플렉스 강제줄이기 해제 */
-  flex-shrink: 0;
-  line-height: 38px;
-  font-size: 1.8rem;
-  text-align: center;
-  border-radius: 50%;
-  border: 1px solid gray;
-}

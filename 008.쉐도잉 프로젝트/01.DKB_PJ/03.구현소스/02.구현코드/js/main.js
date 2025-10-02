@@ -41,6 +41,7 @@ const videoSwiper = new Swiper(".clip-box", {
     disableOnInteraction: false,
     // 건드리면 멈췄다가 다시 재개함!(false)
   },
+
   // 화면크기별 스와이퍼 슬라이드 개수
   // Responsive breakpoints
   breakpoints: {
@@ -108,3 +109,22 @@ videoSwiper.on("slideChange", () => {
     btnPrev.style.display = "block";
   } /// else ////
 }); ///// slideChange //////
+
+
+
+/************************************************ 
+    3. 햄버거 버튼 클릭시 상단영역에 클래스 넣기
+************************************************/
+// (1) 이벤트 대상: .btn-ham
+const $btnHam = $(".btn-ham");
+// (2) 변경 대상: #top-area
+const $topArea = $("#top-area");
+
+// (3) 이벤트 대상 클릭시
+// 변경대상에 클래스 토글로 on 넣기
+$btnHam.on("click", () => {
+  $topArea.toggleClass("on");
+}); //// click ////
+
+
+

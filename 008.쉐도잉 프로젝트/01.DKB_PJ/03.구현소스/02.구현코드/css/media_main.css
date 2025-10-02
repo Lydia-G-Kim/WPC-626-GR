@@ -27,6 +27,58 @@
     font-size: 8px;
   }
 
+  /* 상단영역 높이값 변경 */
+  .top-area {
+    height: 60px;
+  }
+  
+  /* 로고박스 스케일변경 */
+  .logo-box {
+    scale: 0.5;
+  }
+
+  /* 모바일용 버튼 그룹박스 보이기 */
+  .btn-group {
+    display: flex;
+  }
+
+  /* 전체 메뉴 박스 변경 */
+  .menu-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* width: 100vw; */
+    width: 0;
+    height: 100vh;
+    background-color: #fff;
+    padding-right: 0;
+
+    /* 처음에 메뉴박스 숨기기 */
+    overflow: hidden;
+  }
+  /* 메뉴그룹 변경 */
+  .menu-group {
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 10vh 5vw;
+  }
+
+  /* 탑메뉴 변경 */
+  .top-menu ul {
+    width: 85vw;
+    line-height: 4;
+    margin-top: 5vh;
+    border-bottom: 3px solid #e5e5e5;
+  }
+
+  /* gnb 메뉴 변경 */
+  .gnb-menu ul {
+    flex-direction: column;
+    margin-top: 5vh;
+    font-size: 2.5vh;
+  }
+
   /* 미리보기 파트 : 한줄에 3개씩 */
   .preview-area li {
     width: calc((100% - 1.5% * 2) / 3);
@@ -36,6 +88,18 @@
   .live-box ul,
   .poster-box ul {
     grid-template-columns: repeat(3, 1fr);
+  }
+  /* 대표포스터 li 그리드 설정 초기화! */
+  .poster-box ul li {
+    /* 가상클래스로 설정된 li도 강제적용위해
+    !important 사용함! */
+    grid-row: auto !important;
+  }
+
+  /* 하단영역 플렉스 방향 변경 및 수직방향 정렬조정 */
+  #bottom-area .cont-box {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 /* 1024px 이하 미디어쿼리 종료 */

@@ -56,7 +56,7 @@ $topLink.click(function(e){ // e - 이벤트 객체
   switch(aTxt){
     case "로그인" : location.href = 'login.html'; break;
     case "회원가입" : location.href = 'member.html'; break;
-  }
+  } //// switch문 //////////
 }); /////// click 이벤트 //////////////
 
 

@@ -4,6 +4,11 @@
 import { previewData, catData } from "../data/dkb_data.js";
 console.log(catData);
 
+// 스크롤액션 불러오기 /////
+import scrollAction from "./scroll_action.js";
+
+// 스크롤액션 함수 호출하기
+scrollAction();
 
 /************************************************ 
     1. 미리보기 데이터 바인딩 하기
@@ -81,7 +86,7 @@ catData.map(v=>`
     <!-- 타이틀 -->
     <h3>${v.catTitle}</h3>
     <!-- 내용 -->
-    <p>${v.catContent.replace(/\n/g,'<br/>')}</p>
+    <p>${v.catContent.replace(/\n/g,'<br />')}</p>
   </aside>
 </div>  
   `).join('');
@@ -98,6 +103,7 @@ catData.map(v=>`
   // -> 그러면 모두 찾아서 변경함
   // -> \n은 엔터기호를 찾아냄
   // .replace(/\n/g,'<br/>')
+
 
 /************************************************ 
     3. 최신 동영상 파트에 스와이퍼 적용하기

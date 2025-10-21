@@ -1,12 +1,12 @@
 @charset "utf-8";
-/* 도깨비 PJ 공통 모듈 CSS - common.css */
+/* 도깨비 PJ 공통모듈 CSS - common.css */
 /* 상단, 배너, 드라마파트메뉴, 하단 모듈 */
 
 /* 공통 요소 셋팅 */
 html{
     /* 부드러운 스크롤 셋팅 */
     scroll-behavior: smooth;
-    /* 전체 글자크기 셋팅
+    /* 전체 글자 크기 셋팅
     -> rem단위 계산편의를 위해 10px로 셋팅 */
     font-size: 10px;
 }
@@ -15,7 +15,6 @@ body{
     /* 글자체 */
     font-family: "Noto Sans KR", Malgun Gothic, dotum, "돋움", Arial, AppleGothic, Sans-serif;
 }
-
 
 /***************** 1. 상단영역 *****************/
 /* 상단영역 최상위 부모박스 */
@@ -215,7 +214,7 @@ h1.logo::before {
   box-sizing: border-box;
 
   /* 배경색은 속박스인 패딩박스에 준다! */
-  /* background-color: #fff; -> 삭제 */
+  /* background-color: #fff;-> 삭제! */
 
   /* 서브메뉴를 숨기기위해 넘치는 자식 숨기기설정 */
   overflow: hidden;
@@ -228,25 +227,25 @@ h1.logo::before {
   transition: 0.4s ease-out;
 }
 
-/* 1024px 이상인 DT에서만 오버 셋팅 적용 시작
+/* 1024px 이상인 DT에서만 오버 셋팅적용 시작
 -> 미디어쿼리 구역으로 감싸준다! (min-width:1024px) */
-@media screen and (min-width:1024px) {
+@media screen and (min-width: 1024px) {
   /* 부모 li에 마우스 오버시 .sub-menu 높이값 변경하기 */
-.gnb-menu > ul > li:hover .sub-menu {
-  max-height: 400px;
-  /* 최대 높이값을 컨텐츠 높이값 보다 좀 더 크게 잡으면
-    오버시 높이값이 내용만큼만 커지게 된다! */
-}
-} /* 1024px 이상인 DT에서만 오버 셋팅 적용 종료 */
-
+  .gnb-menu > ul > li:hover .sub-menu {
+    max-height: 400px;
+    /* 최대 높이값을 컨텐츠 높이값 보다 좀 더 크게 잡으면
+      오버시 높이값이 내용만큼만 커지게 된다! */
+  }
+  
+}/* 1024px 이상인 DT에서만 오버 셋팅적용 종료 */
 
 /* 패딩만 내부에 다른 블록요소를 사용함!
 -> 자식요소 숨기기 부모박스엔 패딩을 줄 수 없다! */
 .padding-box {
   padding: 5vw;
-  /* li에서 25px 떨어져서 하단 보더가 보이게 함 */
+  /* li에서 25px떨어져서 하단 보더가 보이게함 */
   margin-top: 25px;
-  /* 배경색은 여기에! */
+  /* 배경색은 여기에~!!! */
   background-color: white;
 }
 
@@ -322,10 +321,9 @@ h1.logo::before {
   /* 아이콘설정(글자와 같음) */
   font-size: 3rem;
   cursor: pointer;
-  color: #474747;
+  color: #222;
 }
-
-/* 햄버거 버튼 셋팅 : 처음에 두번째 i태그인 x 버튼이 안보임 */
+/* 햄버거 버튼 셋팅 : 처음에 두번째 i태그인 x버튼 안보임 */
 .btn-ham i:nth-child(2){
   display: none;
 }
@@ -419,7 +417,7 @@ h1.logo::before {
 /* 인박스 높이값 초기화 */
 .spart-menu.inbox {
   height: auto;
-  /* 모바일 화면에서 좁아질 때 가로스크롤 생성 */
+  /* 모바일 화면에서 좁아질때 가로스크롤생성 */
   overflow-x: auto;
 }
 .spart-menu ul {
@@ -478,11 +476,15 @@ h1.logo::before {
 }
 
 /***************** 3. 하단영역 *****************/
-.bottom-area {
+/* 겉박스 */
+#bottom-area{
   border-top: 1px solid #ccc;
+  background: url(../images/footer_bg_tvn-pc.png) no-repeat center/cover;
+}
+/* 속박스 */
+.bottom-area {
   padding-top: 20px;
   padding-bottom: 80px;
-  background: url(../images/footer_bg_tvn-pc.png) no-repeat center/cover;
 }
 
 /* 하단링크박스 */
@@ -535,4 +537,3 @@ h1.logo::before {
   border-radius: 50%;
   border: 1px solid gray;
 }
-

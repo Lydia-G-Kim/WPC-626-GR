@@ -2,7 +2,7 @@
 
 // 도깨비 데이터 불러오기 ////
 import { previewData, catData, liveData, posterData, clipData } from "../data/dkb_data.js";
-console.log(clipData);
+// console.log(clipData);
 
 // 스크롤액션 불러오기 /////
 import scrollAction from "./scroll_action.js";
@@ -18,8 +18,26 @@ scrollAction();
 // (1) 바인딩 대상 : .preview-box ul.cont-box
 const previewArea = 
 document.querySelector('.preview-area ul.cont-box');
-console.log(previewArea);
+// console.log(previewArea);
 // (2) 바인딩 데이터 : previewData
+// -> 요구사항 : 기존 배열데이터를 내림차순 정리하여
+// 8개의 데이터만 다시 변수에 할당한다!
+// 순서 : 기존 배열 데이터의 객체 속성중 idx 순서로 정렬!
+// sort() 메서드 사용!
+// sort((a, b) => a.idx - b.idx);
+
+// 원본데이터 내림차순 정렬
+previewData.sort((a, b) => b.idx - a.idx);
+// sort((앞,뒤)=>앞.idx-뒤.idx) -> 오름차순
+// sort((앞,뒤)=>뒤.idx-앞.idx) -> 내림차순
+
+// 새로운 배열에 앞쪽 8개의 데이터 수집하기
+let newPreviewData = [];
+for(let i=0; i<8; i++){
+  newPreviewData.push(previewData[i]);
+  // push(값) -> 배열에 값추가
+}
+// console.log('새로운 미리보기 배열',newPreviewData);
 
 /* (3) 반복 구조
 <li>
@@ -30,8 +48,10 @@ console.log(previewArea);
 // (4) 데이터 바인딩하기 : map().join('')사용!
 // 배열.map((배열값,순번)=>리턴값) -> 새로운배열 생성!
 // -> 새로운 배열값 만들기는 맵조잉~!!!(map().join(''))
+// -> 여기서는 내림차순 상위 8개 데이터만 돌아준다!
+// -> newPreviewData 사용!
 previewArea.innerHTML = 
-previewData.map(v=>`
+newPreviewData.map(v=>`
   <li>
     <h3>${v.title}</h3>
     <p>${v.story}</p>
@@ -44,7 +64,7 @@ previewData.map(v=>`
 // 바인딩 대상 : .cat-box
 const catBox = 
 document.querySelector('.cat-box');
-console.log(catBox);
+// console.log(catBox);
 
 // 데이터 바인딩 태그구조
 /* 
@@ -110,7 +130,7 @@ catData.map(v=>`
 // (1) 바인딩 대상 : .live-box
 const liveBox = 
 document.querySelector('.live-box');
-console.log(liveBox);
+// console.log(liveBox);
 
 // (2) 바인딩 데이터 : liveData
 // (3) 바인딩 태그구조
@@ -150,7 +170,7 @@ liveData.map(v=>`
 // (1) 바인딩 대상 : .poster-box
 const posterBox = 
 document.querySelector('.poster-box');
-console.log(posterBox);
+// console.log(posterBox);
 
 // (2) 바인딩 데이터 : posterData
 // (3) 바인딩 태그구조
@@ -190,7 +210,7 @@ posterData.map(v=>`
 // (1) 바인딩 대상 : .clip-box
 const clipBox = 
 document.querySelector('.clip-box');
-console.log(clipBox);
+// console.log(clipBox);
 
 // (2) 바인딩 데이터 : clipData
 // (3) 바인딩 태그구조
@@ -271,14 +291,14 @@ const videoSwiper = new Swiper(".clip-box", {
 // -> 선택시 주의: .ab1,.ab2는 배너에도 있음!
 const btnPrev = document.querySelector("#video-part .ab1");
 const btnNext = document.querySelector("#video-part .ab2");
-// console.log(btnPrev, btnNext);
+// // console.log(btnPrev, btnNext);
 
 // 이전버튼은 처음 로딩시 숨기기
 btnPrev.style.display = "none";
 
 // 다음버튼 클릭시 Swiper API를 이용한 코딩하기!!!
 btnNext.addEventListener("click", () => {
-  // console.log("다음버튼 클릭");
+  // // console.log("다음버튼 클릭");
   videoSwiper.slideNext();
 });
 
@@ -289,8 +309,8 @@ btnPrev.addEventListener("click", () => {
 
 // 스와이퍼 슬라이드가 변경될때 발생 이벤트는? slideChange
 videoSwiper.on("slideChange", () => {
-  //   console.log("맨처음인가?", videoSwiper.isBeginning);
-  //   console.log("맨끝인가?", videoSwiper.isEnd);
+  //   // console.log("맨처음인가?", videoSwiper.isBeginning);
+  //   // console.log("맨끝인가?", videoSwiper.isEnd);
 
   // 맨처음인가? 맨끝인가?에 따른 분기 //////
   // 1. 맨처음엔 => 이전버튼 비활성화

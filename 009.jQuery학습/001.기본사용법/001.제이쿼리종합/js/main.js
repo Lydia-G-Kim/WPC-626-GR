@@ -113,17 +113,210 @@ $room.each((idx, el) => {
 }); /////// each 메서드 /////////////
 
 // 좀비는 모두 숨기기!
-$('.mz').hide();
+$(".mz").hide();
 
 // 2. 버튼 셋팅하기 //////////////////////
 // 대상 : .btns button -> $btns변수
 // 변경사항 : 모든 버튼을 숨기고 첫번째 버튼만 보이게함!
-$btns.hide().first().show();
+// $btns.hide().first().show();
 
 // 예비코드 : 특정순번버튼만 나오게하기
-// $btns.hide().eq(3).show();
+$btns.hide().eq(2).show();
 
 // 3. 미니언즈 공통 기능함수 ///////////////////
+const actMini = (el, seq, fn) => {
+  // el : 클릭된 버튼요소
+  // seq : 이동할 li방 순번
+  // fn : 이동후 실행할 콜백함수
+
+  console.log("이동방순번:", seq);
+
+  // 1. 메시지 숨기기
+  $msg.fadeOut(300);
+
+  // 2. 클릭된 버튼 자신 숨기기
+  $(el).slideUp(300);
+
+  // 3. 방의 위치 알아내기
+  // -> 요소의 위치는 offset().top / offset().left 메서드 사용
+  let myRoom = {}; // 위치정보 객체
+  let myTarget = $room.eq(seq); // n번방
+  myRoom.top = myTarget.offset().top;
+  // 방 중앙에 오도록 방크기의 절반만큼 이동하고 자기크기의
+  // 절반만큼 빼줌!
+  myRoom.left = myTarget.offset().left + myTarget.width() / 2 - $mi.width() / 2;
+  console.log("n번방위치:", myRoom);
+
+  // 4. 미니언즈 이동하기
+  $mi.animate(
+    {
+      top: myRoom.top,
+      left: myRoom.left,
+    },
+    800, // 시간
+    "easeOutElastic", // 이징
+    fn // 이동후 콜백함수
+  );
+  // animate({CSS설정},시간,이징,함수);
+}; ///////////// actMini 함수 ///////////////
 
 // 4. 버튼 클릭하여 기능수행하기 ////////////////
 // (4-1) "들어가기" 버튼 클릭시
+$btns
+  .first()
+  .click(function () {
+    // 버튼별 기능구현하기 //////////////
+    let fn = () => {
+      // 이동후 콜백함수
+
+      // [1] 메시지 변경후 나타나기
+      // -> 방번호와 같은 순번 메시지
+      // -> 도착 1초후 나타나기
+      $msg
+        .html(msgTxt[8])
+        .delay(1000)
+        .fadeIn(300, () => {
+          // 콜백함수
+          // [2] 다음버튼 보이기
+          $(this).next().fadeIn(300);
+        });
+    }; // fn 함수 끝 //////////////
+
+    // 3. 미니언즈 공통 기능함수 호출하기
+    actMini(this, 8, fn);
+  }) /////////// click //////////////
+
+  // (4-2) "옆방으로!" 버튼 클릭시
+  .next()
+  .click(function () {
+    // 버튼별 기능구현하기 //////////////
+    let fn = () => {
+      // 이동후 콜백함수
+
+      // [1] 좀비나타나기 : 현재방의 좀비선택
+      $room
+        .eq(9)
+        .find(".mz") // 좀비선택
+        .delay(1000) // 1초후
+        .fadeIn(300, () => {
+          // 좀비등장후 콜백
+          // [2] 메시지 나타나기
+          $msg.html(msgTxt[9]).css({ left: "-100%" }).fadeIn(300);
+
+          // [3] 다음버튼 보이기
+          $(this).next().fadeIn(300);
+        }); /////// fadeIn ////////////
+    }; // fn 함수 끝 //////////////
+
+    // 3. 미니언즈 공통 기능함수 호출하기
+    actMini(this, 9, fn);
+  }) /////////// click ////////////////
+
+  // (4-3) "윗층으로 도망가!" 버튼 클릭시
+  .next()
+  .click(function () {
+    // 버튼별 기능구현하기 //////////////
+    let fn = () => {
+      // 이동후 콜백함수
+      // [1] 첫번째 메시지 나타나기
+      $msg
+        .html(msgTxt[7][0])
+        .delay(500) // 0.5초후
+        .fadeIn(300) // 나타나기
+        .delay(2000) // 2초후
+        .fadeIn(300, () => {
+          // 다시 나타나기
+          // [2] 좀비 나타나기 : 7번방의 좀비
+          $room
+            .eq(7)
+            .find(".mz") // 좀비선택
+            .delay(1000) // 1초후
+            .fadeIn(300, 
+              // function() { // 일반익명함수 this는 좀비!
+              () => { // 일반익명함수 this는 좀비!
+              console.log('this의미:', this);
+              // 좀비등장후 콜백
+              // [3] 다음 메시지 나타나기
+              $msg.html(msgTxt[7][1]);
+              // [4] 다음버튼 보이기
+              $(this).next().fadeIn(300);
+            }); /////// fadeIn ////////////
+        }); ///////// fadeIn ////////////
+    }; // fn 함수 끝 //////////////
+
+    // 3. 미니언즈 공통 기능함수 호출하기
+    actMini(this, 7, fn);
+  }) /////////// click ////////////////
+
+
+  // (4-4) "다시옆방으로!" 버튼 클릭시
+  .next()
+  .click(function () {
+    // 버튼별 기능구현하기 //////////////
+    let fn = () => {
+      // 이동후 콜백함수
+      // [1] 첫번째 메시지 보이기
+      $msg
+        .html(msgTxt[6][0])
+        .delay(500) // 0.5초후
+        .fadeIn(300) // 나타나기
+        .delay(2000) // 2초후
+        .fadeIn(300, () => {
+          // [2] 두번째 메시지 보이기
+          $msg.html(msgTxt[6][1]);
+          // [3] 다음버튼 보이기
+          $(this).next().fadeIn(300);
+        })
+    }; // fn 함수 끝 //////////////
+
+    // 3. 미니언즈 공통 기능함수 호출하기
+    actMini(this, 6, fn);
+  }) /////////// click ////////////////
+
+  // (4-5) "무서우니 윗층으로!" 버튼 클릭시
+  .next()
+  .click(function () {
+    // 버튼별 기능구현하기 //////////////
+    let fn = () => {
+      // 이동후 콜백함수
+      // [1] 여러 메시지를 순차적으로 보이게하기
+      $msg
+      .html(msgTxt[4][0][0]) // "무",
+        .fadeIn(200)
+        .delay(500)
+        .fadeIn(200,()=>$msg.html(msgTxt[4][0][1])) // "무.",
+        .delay(500)
+        .fadeIn(200,()=>$msg.html(msgTxt[4][0][2])) // "무.서",
+        .delay(500)
+        .fadeIn(200,()=>$msg.html(msgTxt[4][0][3])) // "무.서.",
+        .delay(500)
+        .fadeIn(200,()=>$msg.html(msgTxt[4][0][4])) // "무.서.워",
+        .delay(500)
+        .fadeIn(200,()=>$msg.html(msgTxt[4][0][5])) // "무.서.워.",
+        .delay(500)
+        .fadeIn(200,()=>$msg.html(msgTxt[4][0][6])) // "무.서.워..",
+        .delay(500)
+        .fadeIn(200,()=>$msg.html(msgTxt[4][0][7])) // "무.서.워...",
+        .delay(3000)
+        .fadeIn(200,()=>$msg.html(msgTxt[4][1])); 
+        // `아~악! 물렸다!<br>어서 치료주사방으로!`
+
+        // [2] 7번방의 좀비 윗층으로 뛰어오른후 달겨들기
+        $room.eq(7).find('.mz')
+        .delay(4000) // 4초후
+        .animate({top: '-100%'},500,'easeOutBounce')
+        .delay(500) // 0.5초후
+        .animate({right: '123%'},1500,'easeOutElastic');
+
+        // [3] 미니언즈 주인공 이미지 좀비로 변경하기 + 회색처리
+        // 7초후 적용하기
+        setTimeout(() => {
+          $mi.find('img').attr('src','images/mz1.png')
+          .css('filter','grayscale(100%)');          
+        }, 7000);
+      
+    }; // fn 함수 끝 //////////////
+
+    // 3. 미니언즈 공통 기능함수 호출하기
+    actMini(this, 4, fn);
+  }) /////////// click ////////////////

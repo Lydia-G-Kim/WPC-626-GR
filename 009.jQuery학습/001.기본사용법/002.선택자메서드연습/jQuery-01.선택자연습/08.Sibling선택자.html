@@ -13,21 +13,21 @@
     <script>
       $(()=>{
         // 미션: .first를 클릭하면 다음에 있는 형제요소인 li의 글자가 6vw로 커지면서 margin-left값이 10vw로 글자색은 red로 변경되게 하시오. 트랜지션 설정도 하시오.
-        
-        $('.first').click((e)=>{
-          // 여기서 function(){}사용시 this도 가능
-          $('+li',e.target)
-          // $(e.target).next()
-          .css({
-            fontSize:"6vw",
-            marginLeft:"10vw",
-            color:"red",
-            transition:"all .4s"
-          })
 
-        }); //// click ////
+      $('.first').click((e)=>{
+        // 여기서 functiion(){}사용시 this도 가능
+        $('+li',e.target)
+        // $(e.target).next()
+        .css({
+          fontSize:'6vw',
+          marginLeft:'10vw',
+          color:'red',
+          transition:'all .4s'
+        })
 
-      }); /////// 제이쿼리 코드 블록 ///////
+      }); /// click ///
+
+      }); /// 제이쿼리 코드 블록 ///////
     </script>
   </head>
 

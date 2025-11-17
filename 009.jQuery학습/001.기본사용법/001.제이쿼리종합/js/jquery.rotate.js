@@ -18,7 +18,6 @@
         return false;
     }
     $.cssHooks['rotate'] = {
-/*************  ✨ Windsurf Command 🌟  *************/
         get: function(elem, computed, extra){
             var property = getTransformProperty(elem);
             if (property) {
@@ -27,7 +26,6 @@
                 return '';
             }
         },
-/*******  c1fe2a65-1017-4a4e-b541-306fc2af62fb  *******/
         set: function(elem, value){
             var property = getTransformProperty(elem);
             if (property) {

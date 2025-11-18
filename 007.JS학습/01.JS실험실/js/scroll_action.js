@@ -74,29 +74,28 @@ const checkFn = (el) => {
 
     // 등장위치값
     let pos = el.getBoundingClientRect().top;
-
-    // 기준검사 조건에 맞으면 on 클래스 추가
+    
+    // 기준검사 조건에 맞으면 on 클래스추가
     if(pos < gijun){
         el.classList.add("on");
-    } //// if ////
-    
+    } //// if //////////////////
     // 기준검사 조건에 맞지 않을 때 on 클래스 제거
     else{
         el.classList.remove("on");
-    } //// else ////
+    } //// else //////////////
+
+    
+}; ///////// checkFn //////////////
 
 
-}; /////// checkFn ///////
-
-
-// 2. 이벤트 함수 설정하기
+// 2. 이벤트 함수 설정하기 
 window.addEventListener('scroll',()=>{
 
-    console.log('스크롤중~~~!');
+    console.log('스크롤~~~!');
 
     // 대상의 개수만큼 하나씩 반복하여
     // checkFn 함수로 보내준다!
     // 그러면 함수에서 해당 대상에게 on 클래스를 더해준다!
-    daesang.forEach(el =>checkFn(el));
+    daesang.forEach(el=>checkFn(el));
 
-}); /////// scroll 이벤트 ///////
+}); /////// scroll 이벤트 /////////////////////
